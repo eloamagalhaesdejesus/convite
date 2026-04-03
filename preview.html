@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aniversário da Eloá 🐠</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --deep: #3a0a2a;
+  --ocean: #6b1a4a;
+  --teal: #c0507a;
+  --aqua: #f0a0c0;
+  --foam: #fde8f0;
+  --pearl: #fff0f6;
+  --coral: #f7c8d8;
+  --gold: #ffd9a8;
+  --sand: #fdf0f6;
+}
+
+body {
+  background: #4a1535;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'DM Sans', sans-serif;
+  overflow-x: hidden;
+}
+
+/* Bubbles */
+.bubbles {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+.bubble {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(240,160,192,0.12);
+  border: 1px solid rgba(240,160,192,0.2);
+  animation: rise linear infinite;
+}
+@keyframes rise {
+  0% { transform: translateY(110vh); opacity: 0; }
+  10% { opacity: 1; }
+  100% { transform: translateY(-10vh); opacity: 0; }
+}
+
+/* Card */
+.card {
+  position: relative;
+  z-index: 1;
+  width: min(420px, 96vw);
+  background: linear-gradient(160deg, #7a2a55 0%, #4a1535 45%, #3a0e28 100%);
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+  border: 1px solid rgba(240,160,192,0.25);
+  margin: 32px 0;
+}
+
+/* Header */
+.header {
+  text-align: center;
+  padding: 24px;
+}
+.youre-invited {
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--aqua);
+}
+.birthday-script {
+  font-family: 'Great Vibes', cursive;
+  font-size: 64px;
+  color: var(--foam);
+}
+.party-script {
+  font-family: 'Great Vibes', cursive;
+  font-size: 48px;
+  color: var(--aqua);
+}
+
+/* Name */
+.name-section {
+  text-align: center;
+  padding: 12px 24px;
+}
+.da {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  color: var(--aqua);
+}
+.name {
+  font-family: 'Great Vibes', cursive;
+  font-size: 72px;
+  color: var(--gold);
+}
+.age-badge {
+  margin-top: 8px;
+  font-size: 14px;
+  color: var(--gold);
+}
+
+/* Tagline */
+.tagline {
+  text-align: center;
+  padding: 16px 24px;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  color: var(--aqua);
+}
+
+/* Info */
+.info-section {
+  padding: 16px 24px;
+}
+.info-row {
+  margin-bottom: 12px;
+}
+.info-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  color: var(--aqua);
+}
+.info-main {
+  font-size: 18px;
+  color: var(--pearl);
+}
+.info-sub {
+  font-size: 12px;
+  color: var(--aqua);
+}
+
+/* Buttons */
+.buttons {
+  padding: 16px 24px;
+}
+.btn {
+  display: block;
+  text-align: center;
+  padding: 12px;
+  border-radius: 100px;
+  margin-bottom: 10px;
+  text-decoration: none;
+}
+.btn-primary {
+  background: linear-gradient(135deg, #ffd9a8, #f0a500);
+  color: var(--deep);
+}
+.btn-secondary {
+  border: 1px solid rgba(240,160,192,0.35);
+  color: var(--aqua);
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 16px;
+  font-size: 13px;
+  color: var(--aqua);
+}
+</style>
+</head>
+
+<body>
+
+<div class="bubbles" id="bubbles"></div>
+
+<div class="card">
+
+  <div class="header">
+    <p class="youre-invited">venha celebrar com a gente ✦</p>
+    <div class="birthday-script">1º aninho</div>
+    <div class="party-script">da Eloá</div>
+  </div>
+
+  <div class="name-section">
+    <p class="da">nossa pequena sereia</p>
+    <div class="name">Eloá</div>
+    <div class="age-badge">🐚 está completando 1 aninho 🐚</div>
+  </div>
+
+  <div class="tagline">
+    o primeiro aninho da Eloá chegou,<br>
+    e nossa alegria será ainda maior com você aqui ✦
+  </div>
+
+  <div class="info-section">
+    <div class="info-row">
+      <p class="info-label">data</p>
+      <p class="info-main">06 de maio de 2026</p>
+      <p class="info-sub">quarta-feira</p>
+    </div>
+
+    <div class="info-row">
+      <p class="info-label">horário</p>
+      <p class="info-main">a partir das 16h</p>
+      <p class="info-sub">será uma tarde muito especial ✦</p>
+    </div>
+
+    <div class="info-row">
+      <p class="info-label">endereço</p>
+      <p class="info-main">Rua do Oceano, 123</p>
+      <p class="info-sub">
+        Bairro das Ondas<br>
+        <a href="https://maps.google.com" target="_blank">ver no mapa</a>
+      </p>
+    </div>
+  </div>
+
+  <div class="buttons">
+    <a href="#" class="btn btn-primary">🐠 confirmar presença</a>
+    <a href="#" class="btn btn-secondary">🗺️ como chegar</a>
+  </div>
+
+  <div class="footer">
+    esperamos você com muito amor 🌸
+  </div>
+
+</div>
+
+<script>
+const container = document.getElementById('bubbles');
+for (let i = 0; i < 15; i++) {
+  const b = document.createElement('div');
+  b.className = 'bubble';
+  b.style.width = b.style.height = Math.random()*15 + 5 + 'px';
+  b.style.left = Math.random()*100 + '%';
+  b.style.animationDuration = Math.random()*6 + 5 + 's';
+  container.appendChild(b);
+}
+</script>
+
+</body>
+</html>
