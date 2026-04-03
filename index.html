@@ -36,14 +36,15 @@
       --ocean-base: rgba(215, 180, 198, 0.95);
       --icon-bg: rgba(255,255,255,0.75);
       --icon-border: #ead1dc;
-      --white-glow: rgba(255,255,255,0.85);
       --mermaid-1: #f3c6d8;
       --mermaid-2: #cfa4bd;
       --mermaid-3: #b98aa6;
       --fish-1: #f6dca9;
       --fish-2: #eab8cc;
+      --fish-3: #d9b6e3;
       --shell: #f3c6d8;
       --star: #f6dca9;
+      --jelly: #f4d6e3;
     }
 
     html {
@@ -185,30 +186,31 @@
       font-size: 12px;
       letter-spacing: 2px;
       color: var(--soft);
-      margin-bottom: 12px;
+      margin-bottom: 10px;
       text-transform: uppercase;
     }
 
     .title {
       font-family: 'Great Vibes', cursive;
-      font-size: 60px;
-      line-height: 0.95;
+      font-size: 64px;
+      line-height: 0.9;
       color: var(--soft-2);
+      margin-bottom: 2px;
     }
 
     .subtitle {
       font-family: 'Cormorant Garamond', serif;
       font-style: italic;
-      font-size: 22px;
+      font-size: 20px;
       color: var(--soft);
-      margin-top: 10px;
+      margin-bottom: 4px;
     }
 
     .name {
       font-family: 'Great Vibes', cursive;
-      font-size: 94px;
-      line-height: 1;
-      margin: 6px 0 2px;
+      font-size: 100px;
+      line-height: 0.95;
+      margin: 0 0 6px;
       background: linear-gradient(
         90deg,
         var(--gold) 0%,
@@ -402,15 +404,14 @@
     .ocean {
       position: relative;
       margin-top: 10px;
-      height: 190px;
+      height: 205px;
       overflow: hidden;
-      background:
-        linear-gradient(
-          to top,
-          var(--ocean-base),
-          rgba(242, 223, 232, 0.75),
-          transparent
-        );
+      background: linear-gradient(
+        to top,
+        var(--ocean-base),
+        rgba(242, 223, 232, 0.75),
+        transparent
+      );
       box-shadow: inset 0 10px 30px rgba(255,255,255,0.18);
     }
 
@@ -535,30 +536,54 @@
       bottom: 10px;
       left: 50%;
       transform: translateX(-50%);
-      width: 64px;
-      opacity: 0.95;
+      width: 90px;
+      opacity: 1;
+      z-index: 4;
+      filter: drop-shadow(0 0 12px rgba(255,255,255,0.6));
       animation: mermaidFloat 6s ease-in-out infinite;
-      filter: drop-shadow(0 0 8px rgba(255,255,255,0.35));
+    }
+
+    .mermaid svg {
+      animation: mermaidGlow 3s ease-in-out infinite;
     }
 
     .star-svg {
       position: absolute;
-      bottom: 20px;
-      left: 28%;
-      width: 26px;
+      bottom: 24px;
+      left: 26%;
+      width: 28px;
       opacity: 0.92;
       animation: starGlow 3s ease-in-out infinite;
       filter: drop-shadow(0 0 8px rgba(255,255,255,0.45));
+      z-index: 4;
     }
 
     .shell-svg {
       position: absolute;
-      bottom: 18px;
-      right: 42px;
-      width: 28px;
-      opacity: 0.9;
+      bottom: 16px;
+      right: 30px;
+      width: 36px;
+      opacity: 1;
+      z-index: 4;
+      filter: drop-shadow(0 0 10px rgba(255,255,255,0.5));
       animation: shellFloat 4s ease-in-out infinite;
-      filter: drop-shadow(0 0 8px rgba(255,255,255,0.45));
+    }
+
+    .shell-svg.shell-left {
+      left: 84px;
+      right: auto;
+      bottom: 18px;
+      width: 26px;
+      opacity: 0.88;
+      animation-duration: 4.8s;
+    }
+
+    .shell-svg.shell-mid {
+      right: 96px;
+      bottom: 22px;
+      width: 24px;
+      opacity: 0.84;
+      animation-duration: 5.2s;
     }
 
     .fish-svg {
@@ -566,11 +591,12 @@
       width: 34px;
       opacity: 0.98;
       filter: drop-shadow(0 0 8px rgba(255,255,255,0.4));
+      z-index: 4;
     }
 
     .fish-svg.one {
       top: 42px;
-      left: 10%;
+      left: 8%;
       animation: fishSwimSVG1 14s linear infinite;
     }
 
@@ -580,14 +606,50 @@
       animation: fishSwimSVG2 18s linear infinite;
     }
 
+    .fish-svg.three {
+      top: 52px;
+      right: 4%;
+      transform: scaleX(-1);
+      animation: fishSwimBack1 16s linear infinite;
+      width: 30px;
+    }
+
+    .fish-svg.four {
+      top: 94px;
+      right: -2%;
+      transform: scaleX(-1);
+      animation: fishSwimBack2 20s linear infinite;
+      width: 26px;
+    }
+
     .jelly-svg {
       position: absolute;
-      top: 18px;
-      right: 28px;
       width: 26px;
       opacity: 0.72;
       animation: jellyFloat 6s ease-in-out infinite;
       filter: drop-shadow(0 0 8px rgba(255,255,255,0.45));
+      z-index: 4;
+    }
+
+    .jelly-svg.one {
+      top: 18px;
+      right: 28px;
+    }
+
+    .jelly-svg.two {
+      top: 38px;
+      left: 70px;
+      width: 22px;
+      opacity: 0.55;
+      animation-duration: 7s;
+    }
+
+    .jelly-svg.three {
+      top: 30px;
+      right: 92px;
+      width: 18px;
+      opacity: 0.46;
+      animation-duration: 5.5s;
     }
 
     @keyframes sway1 {
@@ -607,6 +669,11 @@
       50% {
         transform: translateX(-50%) translateY(-6px);
       }
+    }
+
+    @keyframes mermaidGlow {
+      0%,100% { opacity: 0.9; }
+      50% { opacity: 1; }
     }
 
     @keyframes starGlow {
@@ -631,6 +698,20 @@
       8% { opacity: 0.98; }
       92% { opacity: 0.98; }
       100% { transform: translateX(210px); opacity: 0; }
+    }
+
+    @keyframes fishSwimBack1 {
+      0% { transform: translateX(0) scaleX(-1); opacity: 0; }
+      8% { opacity: 0.95; }
+      92% { opacity: 0.95; }
+      100% { transform: translateX(-170px) scaleX(-1); opacity: 0; }
+    }
+
+    @keyframes fishSwimBack2 {
+      0% { transform: translateX(0) scaleX(-1); opacity: 0; }
+      8% { opacity: 0.88; }
+      92% { opacity: 0.88; }
+      100% { transform: translateX(-210px) scaleX(-1); opacity: 0; }
     }
 
     @keyframes jellyFloat {
@@ -678,15 +759,15 @@
       }
 
       .title {
-        font-size: 54px;
-      }
-
-      .name {
-        font-size: 80px;
+        font-size: 58px;
       }
 
       .subtitle {
-        font-size: 20px;
+        font-size: 19px;
+      }
+
+      .name {
+        font-size: 84px;
       }
 
       .text {
@@ -713,7 +794,7 @@
       }
 
       .ocean {
-        height: 175px;
+        height: 185px;
       }
 
       .wave-top {
@@ -721,7 +802,7 @@
       }
 
       .mermaid {
-        width: 56px;
+        width: 78px;
       }
     }
   </style>
@@ -846,7 +927,41 @@
           </svg>
         </div>
 
-        <div class="jelly-svg">
+        <div class="fish-svg three">
+          <svg viewBox="0 0 60 30" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="30" cy="15" rx="14" ry="8" fill="#d9b6e3"/>
+            <polygon points="14,15 0,5 0,25" fill="#d9b6e3"/>
+            <circle cx="38" cy="13" r="1.5" fill="#6e4d5f"/>
+          </svg>
+        </div>
+
+        <div class="fish-svg four">
+          <svg viewBox="0 0 60 30" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="30" cy="15" rx="14" ry="8" fill="#f3c6d8"/>
+            <polygon points="14,15 0,5 0,25" fill="#f3c6d8"/>
+            <circle cx="38" cy="13" r="1.5" fill="#6e4d5f"/>
+          </svg>
+        </div>
+
+        <div class="jelly-svg one">
+          <svg viewBox="0 0 50 70" xmlns="http://www.w3.org/2000/svg">
+            <path d="M25 10 C10 10, 8 28, 25 30 C42 28, 40 10, 25 10 Z" fill="#f4d6e3" opacity="0.9"/>
+            <path d="M17 30 C16 42, 15 52, 12 62" stroke="#f4d6e3" stroke-width="2" stroke-linecap="round" fill="none"/>
+            <path d="M24 30 C24 42, 24 52, 24 64" stroke="#f4d6e3" stroke-width="2" stroke-linecap="round" fill="none"/>
+            <path d="M31 30 C32 42, 34 52, 37 62" stroke="#f4d6e3" stroke-width="2" stroke-linecap="round" fill="none"/>
+          </svg>
+        </div>
+
+        <div class="jelly-svg two">
+          <svg viewBox="0 0 50 70" xmlns="http://www.w3.org/2000/svg">
+            <path d="M25 10 C10 10, 8 28, 25 30 C42 28, 40 10, 25 10 Z" fill="#f4d6e3" opacity="0.9"/>
+            <path d="M17 30 C16 42, 15 52, 12 62" stroke="#f4d6e3" stroke-width="2" stroke-linecap="round" fill="none"/>
+            <path d="M24 30 C24 42, 24 52, 24 64" stroke="#f4d6e3" stroke-width="2" stroke-linecap="round" fill="none"/>
+            <path d="M31 30 C32 42, 34 52, 37 62" stroke="#f4d6e3" stroke-width="2" stroke-linecap="round" fill="none"/>
+          </svg>
+        </div>
+
+        <div class="jelly-svg three">
           <svg viewBox="0 0 50 70" xmlns="http://www.w3.org/2000/svg">
             <path d="M25 10 C10 10, 8 28, 25 30 C42 28, 40 10, 25 10 Z" fill="#f4d6e3" opacity="0.9"/>
             <path d="M17 30 C16 42, 15 52, 12 62" stroke="#f4d6e3" stroke-width="2" stroke-linecap="round" fill="none"/>
@@ -864,6 +979,18 @@
         <div class="shell-svg">
           <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
             <path d="M10 60 Q50 10 90 60 Q50 80 10 60Z" fill="#f3c6d8"/>
+          </svg>
+        </div>
+
+        <div class="shell-svg shell-left">
+          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10 60 Q50 10 90 60 Q50 80 10 60Z" fill="#f7d9e3"/>
+          </svg>
+        </div>
+
+        <div class="shell-svg shell-mid">
+          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10 60 Q50 10 90 60 Q50 80 10 60Z" fill="#eec7d8"/>
           </svg>
         </div>
 
