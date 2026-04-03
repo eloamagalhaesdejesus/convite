@@ -36,9 +36,6 @@
       --ocean-base: rgba(215, 180, 198, 0.95);
       --icon-bg: rgba(255,255,255,0.75);
       --icon-border: #ead1dc;
-      --mermaid-1: #f3c6d8;
-      --mermaid-2: #cfa4bd;
-      --mermaid-3: #b98aa6;
       --fish-1: #f6dca9;
       --fish-2: #eab8cc;
       --fish-3: #d9b6e3;
@@ -575,21 +572,6 @@
       animation: sway1 4.8s ease-in-out infinite;
     }
 
-   .mermaid {
-  position: absolute;
-  bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 70px;
-  opacity: 0.85;
-  animation: floatMermaid 5s ease-in-out infinite;
-  z-index: 4;
-}
-
-@keyframes floatMermaid {
-  0%,100% { transform: translateX(-50%) translateY(0px); }
-  50% { transform: translateX(-50%) translateY(-10px); }
-}
 
     .star-svg {
       position: absolute;
@@ -706,18 +688,6 @@
       50% { transform: rotate(-4deg); }
     }
 
-    @keyframes mermaidFloat {
-      0%, 100% {
-        transform: translateX(-50%) translateY(0);
-      }
-      50% {
-        transform: translateX(-50%) translateY(-6px);
-      }
-    }
-
-    @keyframes mermaidGlow {
-      0%,100% { opacity: 0.9; }
-      50% { opacity: 1; }
     }
 
     @keyframes starGlow {
@@ -844,9 +814,7 @@
         height: 140px;
       }
 
-      .mermaid {
-        width: 78px;
-      }
+      
     }
   </style>
 </head>
@@ -1054,22 +1022,7 @@
             <path d="M10 60 Q50 10 90 60 Q50 80 10 60Z" fill="#eec7d8"/>
           </svg>
         </div>
-
-        <div class="mermaid">
-  <svg viewBox="0 0 120 200" xmlns="http://www.w3.org/2000/svg">
-    <!-- corpo -->
-    <path d="M60 20 C50 50, 50 90, 60 110 C70 90, 70 50, 60 20Z" fill="#c08497"/>
-    
-    <!-- cabelo -->
-    <path d="M60 20 C40 10, 30 40, 60 60 C90 40, 80 10, 60 20Z" fill="#fbcfe8"/>
-    
-    <!-- cauda -->
-    <path d="M60 110 C40 140, 30 170, 60 190 C90 170, 80 140, 60 110Z" fill="#f9a8d4"/>
-    
-    <!-- barbatanas -->
-    <path d="M60 170 C40 180, 30 200, 60 190 C90 200, 80 180, 60 170Z" fill="#f472b6"/>
-  </svg>
-</div>
+        
 
       <div class="wave wave-1"></div>
       <div class="wave wave-2"></div>
