@@ -153,12 +153,7 @@
 
       @keyframes bubbleMeetUp {
         0% {
-          transform: translate3d(
-              0,
-              var(--parallax-shift),
-              0
-            )
-            scale(0.8);
+          transform: translate3d(0, var(--parallax-shift), 0) scale(0.8);
           opacity: 0;
         }
 
@@ -183,12 +178,7 @@
 
       @keyframes bubbleMeetDown {
         0% {
-          transform: translate3d(
-              0,
-              var(--parallax-shift),
-              0
-            )
-            scale(0.8);
+          transform: translate3d(0, var(--parallax-shift), 0) scale(0.8);
           opacity: 0;
         }
 
@@ -631,7 +621,7 @@
       .name {
         padding-top: 15px;
         font-family: "Great Vibes", cursive;
-        font-size: 125px;
+        font-size: 135px;
         line-height: 1;
         margin-bottom: 6px;
         background: linear-gradient(
@@ -1939,10 +1929,7 @@
 
         bubbles.forEach((bubble, index) => {
           const speed = ((index % 5) + 1) * 0.25;
-          bubble.style.setProperty(
-            "--parallax-shift",
-            `${-scrollY * speed}px`,
-          );
+          bubble.style.setProperty("--parallax-shift", `${-scrollY * speed}px`);
         });
       });
     </script>
