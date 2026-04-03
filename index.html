@@ -997,7 +997,7 @@
         box-shadow:
           0 14px 28px rgba(243, 213, 158, 0.34),
           0 2px 0 rgba(255, 255, 255, 0.44) inset;
-        animation: primaryCtaGlow 2.8s ease-in-out infinite;
+        animation: primaryCtaGlow 2.4s ease-in-out infinite;
       }
 
       .btn.secondary {
@@ -1040,18 +1040,18 @@
         0%,
         100% {
           box-shadow:
-            0 14px 28px rgba(243, 213, 158, 0.28),
+            0 14px 28px rgba(243, 213, 158, 0.3),
             0 2px 0 rgba(255, 255, 255, 0.44) inset,
-            0 0 0 0 rgba(255, 229, 155, 0.18);
+            0 0 0 0 rgba(255, 229, 155, 0.2);
           filter: brightness(1);
         }
 
         50% {
           box-shadow:
-            0 16px 30px rgba(243, 213, 158, 0.42),
-            0 2px 0 rgba(255, 255, 255, 0.48) inset,
-            0 0 0 6px rgba(255, 229, 155, 0.08);
-          filter: brightness(1.03);
+            0 18px 34px rgba(243, 213, 158, 0.52),
+            0 2px 0 rgba(255, 255, 255, 0.5) inset,
+            0 0 0 10px rgba(255, 229, 155, 0.12);
+          filter: brightness(1.06);
         }
       }
 
@@ -1268,6 +1268,46 @@
         animation: sway1 4.8s ease-in-out infinite;
       }
 
+      .seaweed.five {
+        left: 136px;
+        bottom: 2px;
+        height: 52px;
+        width: 10px;
+        opacity: 0.48;
+        animation: sway2 5.6s ease-in-out infinite;
+      }
+
+      .seaweed.six {
+        right: 138px;
+        bottom: 4px;
+        height: 48px;
+        width: 10px;
+        opacity: 0.46;
+        animation: sway1 5.9s ease-in-out infinite;
+      }
+
+      .coral-svg {
+        position: absolute;
+        width: 32px;
+        height: 32px;
+        z-index: 4;
+        opacity: 0.42;
+        filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.22));
+      }
+
+      .coral-svg.left {
+        left: 116px;
+        bottom: 14px;
+        animation: shellFloat 5.4s ease-in-out infinite;
+      }
+
+      .coral-svg.right {
+        right: 118px;
+        bottom: 16px;
+        animation: shellFloat 5.8s ease-in-out infinite;
+        animation-delay: -2s;
+      }
+
       @keyframes sway1 {
         0%,
         100% {
@@ -1299,6 +1339,16 @@
         animation: starGlow 3s ease-in-out infinite;
         filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.45));
         z-index: 4;
+      }
+
+      .star-svg.alt {
+        left: auto;
+        right: 34%;
+        bottom: 34px;
+        width: 22px;
+        opacity: 0.76;
+        animation-duration: 3.8s;
+        animation-delay: -1.2s;
       }
 
       @keyframes starGlow {
@@ -1552,7 +1602,7 @@
         }
 
         .name {
-          font-size: 96px;
+          font-size: 110px;
         }
 
         .photo-glow {
@@ -1582,6 +1632,31 @@
           height: 170px;
           margin-bottom: 4px;
         }
+
+        .seaweed.five {
+          left: 112px;
+          height: 38px;
+        }
+
+        .seaweed.six {
+          right: 114px;
+          height: 36px;
+        }
+
+        .coral-svg.left {
+          left: 92px;
+          bottom: 16px;
+        }
+
+        .coral-svg.right {
+          right: 94px;
+          bottom: 18px;
+        }
+
+        .star-svg.alt {
+          right: 30%;
+          bottom: 30px;
+        }
       }
     </style>
   </head>
@@ -1600,6 +1675,8 @@
           <div class="seaweed two"></div>
           <div class="seaweed three"></div>
           <div class="seaweed four"></div>
+          <div class="seaweed five"></div>
+          <div class="seaweed six"></div>
 
           <div class="fish-svg one">
             <svg
@@ -1774,6 +1851,39 @@
               <polygon
                 points="50,5 61,35 95,35 67,57 78,90 50,70 22,90 33,57 5,35 39,35"
                 fill="#f6dca9"
+              />
+            </svg>
+          </div>
+
+          <div class="star-svg alt">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+              <polygon
+                points="50,5 61,35 95,35 67,57 78,90 50,70 22,90 33,57 5,35 39,35"
+                fill="#f8e6a8"
+              />
+            </svg>
+          </div>
+
+          <div class="coral-svg left">
+            <svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M18 30 C18 22, 18 17, 18 8 M18 14 C15 14, 13 12, 12 8 M18 17 C22 17, 24 14, 24 10 M18 20 C14 20, 12 23, 11 27"
+                stroke="#f0b8c8"
+                stroke-width="2.4"
+                stroke-linecap="round"
+                fill="none"
+              />
+            </svg>
+          </div>
+
+          <div class="coral-svg right">
+            <svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M18 30 C18 22, 18 17, 18 8 M18 14 C21 14, 23 12, 24 8 M18 17 C14 17, 12 14, 12 10 M18 20 C22 20, 24 23, 25 27"
+                stroke="#d6bee8"
+                stroke-width="2.4"
+                stroke-linecap="round"
+                fill="none"
               />
             </svg>
           </div>
@@ -1952,6 +2062,8 @@
           <div class="seaweed two"></div>
           <div class="seaweed three"></div>
           <div class="seaweed four"></div>
+          <div class="seaweed five"></div>
+          <div class="seaweed six"></div>
 
           <div class="fish-svg one">
             <svg
@@ -2126,6 +2238,39 @@
               <polygon
                 points="50,5 61,35 95,35 67,57 78,90 50,70 22,90 33,57 5,35 39,35"
                 fill="#f6dca9"
+              />
+            </svg>
+          </div>
+
+          <div class="star-svg alt">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+              <polygon
+                points="50,5 61,35 95,35 67,57 78,90 50,70 22,90 33,57 5,35 39,35"
+                fill="#f8e6a8"
+              />
+            </svg>
+          </div>
+
+          <div class="coral-svg left">
+            <svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M18 30 C18 22, 18 17, 18 8 M18 14 C15 14, 13 12, 12 8 M18 17 C22 17, 24 14, 24 10 M18 20 C14 20, 12 23, 11 27"
+                stroke="#f0b8c8"
+                stroke-width="2.4"
+                stroke-linecap="round"
+                fill="none"
+              />
+            </svg>
+          </div>
+
+          <div class="coral-svg right">
+            <svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M18 30 C18 22, 18 17, 18 8 M18 14 C21 14, 23 12, 24 8 M18 17 C14 17, 12 14, 12 10 M18 20 C22 20, 24 23, 25 27"
+                stroke="#d6bee8"
+                stroke-width="2.4"
+                stroke-linecap="round"
+                fill="none"
               />
             </svg>
           </div>
