@@ -38,6 +38,7 @@
       --btn-gold-2: #efcb83;
       --btn-gold-text: #6e5430;
 
+      --ocean-blue: rgba(182, 205, 228, 0.18);
       --ocean-1: #f3dfe9;
       --ocean-2: #ebd2df;
       --ocean-3: #e2c0d2;
@@ -49,9 +50,17 @@
       --shell: #f0c9d7;
       --star: #f3d98e;
       --jelly: #efd0df;
+
       --fish-1: #e8aebe;
+      --fish-1-tail: #e1a1b3;
       --fish-2: #f2d291;
+      --fish-2-tail: #eccb82;
       --fish-3: #cfa8df;
+      --fish-3-tail: #bf95d3;
+      --fish-4: #efbfd0;
+      --fish-4-tail: #e9adc2;
+      --fish-5: #dcbadf;
+      --fish-5-tail: #cda7d4;
     }
 
     html {
@@ -85,7 +94,7 @@
       position: absolute;
       bottom: -120px;
       border-radius: 50%;
-      background: rgba(255,255,255,0.18);
+      background: rgba(190, 215, 238, 0.18);
       border: 1px solid rgba(255,255,255,0.45);
       animation: rise linear infinite;
       will-change: transform;
@@ -201,17 +210,26 @@
 
     .title {
       font-family: 'Great Vibes', cursive;
-      font-size: 64px;
-      line-height: 0.9;
+      font-size: 60px;
+      line-height: 1;
       color: var(--soft-2);
-      margin-bottom: -2px;
+      margin-bottom: 0;
+    }
+
+    .subtitle {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      line-height: 1.1;
+      font-style: italic;
+      color: var(--soft);
+      margin-bottom: 6px;
     }
 
     .name {
       font-family: 'Great Vibes', cursive;
-      font-size: 102px;
-      line-height: 0.86;
-      margin-bottom: -4px;
+      font-size: 112px;
+      line-height: 1;
+      margin-bottom: 6px;
       background: linear-gradient(
         90deg,
         var(--gold) 0%,
@@ -230,15 +248,6 @@
       filter: drop-shadow(0 2px 6px rgba(219, 185, 112, 0.12));
     }
 
-    .subtitle {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 24px;
-      line-height: 1.05;
-      font-style: italic;
-      color: var(--soft);
-      margin-bottom: -6px;
-    }
-
     @keyframes shimmerName {
       0% { background-position: 200% center; }
       100% { background-position: -20% center; }
@@ -248,7 +257,7 @@
       position: relative;
       display: flex;
       justify-content: center;
-      margin: -6px 0 8px;
+      margin: 6px 0 8px;
     }
 
     .photo-glow {
@@ -416,9 +425,10 @@
     .ocean {
       position: relative;
       margin-top: 10px;
-      height: 210px;
+      height: 220px;
       overflow: hidden;
       background:
+        linear-gradient(to top, var(--ocean-blue), rgba(242,223,232,0.78), transparent),
         linear-gradient(to top, var(--ocean-base), rgba(242,223,232,0.78), transparent);
       box-shadow: inset 0 10px 30px rgba(255,255,255,0.18);
     }
@@ -563,7 +573,7 @@
     .star-svg {
       position: absolute;
       bottom: 24px;
-      left: 26%;
+      left: 42%;
       width: 28px;
       opacity: 0.92;
       animation: starGlow 3s ease-in-out infinite;
@@ -586,16 +596,16 @@
     }
 
     .shell-svg.main {
-      bottom: 16px;
-      right: 30px;
+      bottom: 18px;
+      right: 34px;
       width: 30px;
       height: 18px;
       opacity: 0.94;
     }
 
     .shell-svg.left {
-      left: 84px;
-      bottom: 18px;
+      left: 88px;
+      bottom: 20px;
       width: 22px;
       height: 14px;
       opacity: 0.84;
@@ -603,8 +613,8 @@
     }
 
     .shell-svg.mid {
-      right: 96px;
-      bottom: 22px;
+      right: 104px;
+      bottom: 28px;
       width: 20px;
       height: 12px;
       opacity: 0.78;
@@ -616,7 +626,6 @@
       50% { transform: translateY(-4px); }
     }
 
-    /* PEIXES REFINADOS */
     .fish-svg {
       position: absolute;
       width: 32px;
@@ -627,21 +636,39 @@
     }
 
     .fish-svg.one {
-      top: 52px;
-      left: 24px;
-      animation: swimA 12s ease-in-out infinite alternate;
+      top: 56px;
+      left: 26px;
+      animation: fishMoveRight 12s ease-in-out infinite alternate;
     }
 
     .fish-svg.two {
-      top: 92px;
+      top: 112px;
       left: 120px;
-      animation: swimB 13s ease-in-out infinite alternate;
+      animation: fishMoveRightSmall 10s ease-in-out infinite alternate;
     }
 
     .fish-svg.three {
-      top: 64px;
-      right: 40px;
-      animation: swimC 14s ease-in-out infinite alternate;
+      top: 72px;
+      right: 42px;
+      transform: scaleX(-1);
+      animation: fishMoveLeft 14s ease-in-out infinite alternate;
+    }
+
+    .fish-svg.four {
+      top: 128px;
+      right: 122px;
+      transform: scaleX(-1);
+      animation: fishMoveLeftSmall 11s ease-in-out infinite alternate;
+      width: 24px;
+      opacity: 0.82;
+    }
+
+    .fish-svg.five {
+      top: 84px;
+      left: 202px;
+      width: 24px;
+      animation: fishMoveRightTiny 9s ease-in-out infinite alternate;
+      opacity: 0.82;
     }
 
     .fish-svg svg {
@@ -650,22 +677,31 @@
       height: auto;
     }
 
-    @keyframes swimA {
-      0% { transform: translateX(0) scaleX(1); }
-      100% { transform: translateX(90px) scaleX(1); }
+    @keyframes fishMoveRight {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(85px); }
     }
 
-    @keyframes swimB {
+    @keyframes fishMoveRightSmall {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(55px); }
+    }
+
+    @keyframes fishMoveLeft {
       0% { transform: translateX(0) scaleX(-1); }
-      100% { transform: translateX(-80px) scaleX(-1); }
+      100% { transform: translateX(-85px) scaleX(-1); }
     }
 
-    @keyframes swimC {
+    @keyframes fishMoveLeftSmall {
       0% { transform: translateX(0) scaleX(-1); }
-      100% { transform: translateX(-95px) scaleX(-1); }
+      100% { transform: translateX(-55px) scaleX(-1); }
     }
 
-    /* ÁGUAS-VIVAS REFINADAS */
+    @keyframes fishMoveRightTiny {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(40px); }
+    }
+
     .jelly-svg {
       position: absolute;
       width: 22px;
@@ -676,17 +712,25 @@
     }
 
     .jelly-svg.one {
-      top: 26px;
-      right: 32px;
+      top: 28px;
+      right: 34px;
       animation: jellyDrift1 6.5s ease-in-out infinite;
     }
 
     .jelly-svg.two {
-      top: 50px;
-      left: 78px;
+      top: 54px;
+      left: 82px;
       width: 16px;
       opacity: 0.5;
       animation: jellyDrift2 7.4s ease-in-out infinite;
+    }
+
+    .jelly-svg.three {
+      top: 44px;
+      left: 230px;
+      width: 14px;
+      opacity: 0.38;
+      animation: jellyDrift3 8s ease-in-out infinite;
     }
 
     @keyframes jellyDrift1 {
@@ -699,12 +743,17 @@
       50% { transform: translateY(-6px); }
     }
 
+    @keyframes jellyDrift3 {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
+
     @media (max-width: 480px) {
       .card { max-width: 100%; }
       .content { padding: 8px 18px 0; }
-      .title { font-size: 58px; }
-      .name { font-size: 84px; }
-      .subtitle { font-size: 21px; }
+      .title { font-size: 56px; }
+      .subtitle { font-size: 20px; }
+      .name { font-size: 96px; }
       .photo-glow {
         width: 280px;
         height: 280px;
@@ -716,7 +765,7 @@
       }
       .info-content strong { font-size: 19px; }
       .text { font-size: 14px; }
-      .ocean { height: 190px; }
+      .ocean { height: 210px; }
       .wave-top { height: 144px; }
     }
   </style>
@@ -747,8 +796,8 @@
       <p class="youre-invited">com carinho, convidamos você</p>
 
       <div class="title">1º aninho</div>
-      <div class="name">Eloá</div>
       <p class="subtitle">da nossa pequena sereia</p>
+      <div class="name">Eloá</div>
 
       <div class="photo-wrap">
         <div class="photo-glow"></div>
@@ -867,6 +916,22 @@
           </svg>
         </div>
 
+        <div class="fish-svg four">
+          <svg viewBox="0 0 44 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M10 10 C14 4, 24 4, 30 10 C24 16, 14 16, 10 10 Z" fill="#efbfd0"/>
+            <path d="M10 10 L2 4 L2 16 Z" fill="#e9adc2"/>
+            <circle cx="25.5" cy="9" r="1.2" fill="#6d5665"/>
+          </svg>
+        </div>
+
+        <div class="fish-svg five">
+          <svg viewBox="0 0 44 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M10 10 C14 4, 24 4, 30 10 C24 16, 14 16, 10 10 Z" fill="#dcbadf"/>
+            <path d="M10 10 L2 4 L2 16 Z" fill="#cda7d4"/>
+            <circle cx="25.5" cy="9" r="1.2" fill="#6d5665"/>
+          </svg>
+        </div>
+
         <div class="jelly-svg one">
           <svg viewBox="0 0 28 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <path d="M14 6 C7 6, 5 12, 14 16 C23 12, 21 6, 14 6 Z" fill="#efd0df"/>
@@ -877,6 +942,15 @@
         </div>
 
         <div class="jelly-svg two">
+          <svg viewBox="0 0 28 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M14 6 C7 6, 5 12, 14 16 C23 12, 21 6, 14 6 Z" fill="#efd0df"/>
+            <path d="M9 16 C9 22, 8 27, 7 33" stroke="#efd0df" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M14 16 C14 22, 14 27, 14 34" stroke="#efd0df" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M19 16 C19 22, 20 27, 21 33" stroke="#efd0df" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+        </div>
+
+        <div class="jelly-svg three">
           <svg viewBox="0 0 28 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <path d="M14 6 C7 6, 5 12, 14 16 C23 12, 21 6, 14 6 Z" fill="#efd0df"/>
             <path d="M9 16 C9 22, 8 27, 7 33" stroke="#efd0df" stroke-width="1.6" stroke-linecap="round"/>
@@ -928,7 +1002,7 @@
     }
 
     const oceanBubbles = document.getElementById('oceanBubbles');
-    for (let i = 0; i < 14; i++) {
+    for (let i = 0; i < 16; i++) {
       const bubble = document.createElement('div');
       bubble.className = 'ocean-bubble';
       const size = Math.random() * 10 + 6;
