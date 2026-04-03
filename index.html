@@ -103,12 +103,22 @@
 
       .bubble {
         position: absolute;
-        bottom: -120px;
         border-radius: 50%;
         background: rgba(190, 215, 238, 0.18);
         border: 1px solid rgba(255, 255, 255, 0.45);
-        animation: rise linear infinite;
-        will-change: transform;
+        will-change: transform, opacity;
+        --bubble-drift: 0px;
+        --parallax-shift: 0px;
+      }
+
+      .bubble.from-bottom {
+        bottom: -120px;
+        animation: bubbleMeetUp linear infinite;
+      }
+
+      .bubble.from-top {
+        top: -120px;
+        animation: bubbleMeetDown linear infinite;
       }
 
       .sparkle {
@@ -141,18 +151,62 @@
         top: 5px;
       }
 
-      @keyframes rise {
+      @keyframes bubbleMeetUp {
         0% {
-          transform: translateY(0) scale(0.8);
+          transform: translate3d(
+              0,
+              var(--parallax-shift),
+              0
+            )
+            scale(0.8);
           opacity: 0;
         }
 
-        10% {
+        12% {
           opacity: 0.85;
         }
 
+        82% {
+          opacity: 0.5;
+        }
+
         100% {
-          transform: translateY(-120vh) scale(1.06);
+          transform: translate3d(
+              var(--bubble-drift),
+              calc(-58vh + var(--parallax-shift)),
+              0
+            )
+            scale(1.06);
+          opacity: 0;
+        }
+      }
+
+      @keyframes bubbleMeetDown {
+        0% {
+          transform: translate3d(
+              0,
+              var(--parallax-shift),
+              0
+            )
+            scale(0.8);
+          opacity: 0;
+        }
+
+        12% {
+          opacity: 0.8;
+        }
+
+        82% {
+          opacity: 0.48;
+        }
+
+        100% {
+          transform: translate3d(
+              var(--bubble-drift),
+              calc(58vh + var(--parallax-shift)),
+              0
+            )
+            scale(1.04);
           opacity: 0;
         }
       }
@@ -190,12 +244,205 @@
         width: 100%;
         height: 158px;
         overflow: hidden;
+        transform: rotate(180deg);
+        transform-origin: center;
         background: linear-gradient(
           to bottom,
-          rgba(247, 232, 239, 0.96) 0%,
-          rgba(239, 217, 229, 0.72) 55%,
-          rgba(255, 255, 255, 0.14) 100%
+          rgba(245, 235, 241, 0.98) 0%,
+          rgba(224, 211, 229, 0.88) 35%,
+          rgba(206, 218, 235, 0.72) 70%,
+          rgba(255, 255, 255, 0.12) 100%
         );
+      }
+
+      .top-water-light {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        z-index: 1;
+        opacity: 0.42;
+        background:
+          radial-gradient(
+            circle at 18% 26%,
+            rgba(255, 255, 255, 0.28),
+            transparent 24%
+          ),
+          radial-gradient(
+            circle at 82% 28%,
+            rgba(255, 255, 255, 0.2),
+            transparent 22%
+          ),
+          linear-gradient(
+            115deg,
+            transparent 0%,
+            rgba(255, 255, 255, 0.2) 26%,
+            transparent 42%,
+            transparent 58%,
+            rgba(255, 255, 255, 0.14) 72%,
+            transparent 88%
+          );
+        background-size: 150% 100%;
+        animation: topWaterShine 11s linear infinite;
+      }
+
+      .top-ocean-bubbles {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+        pointer-events: none;
+        z-index: 2;
+      }
+
+      .top-ocean-bubble {
+        position: absolute;
+        bottom: -24px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.16);
+        border: 1px solid rgba(255, 255, 255, 0.42);
+        animation: topOceanBubbleRise linear infinite;
+      }
+
+      .wave-top-decor {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        z-index: 3;
+      }
+
+      .wave-top-decor .seaweed {
+        bottom: -8px;
+        opacity: 0.72;
+      }
+
+      .wave-top-decor .seaweed.one {
+        left: 18px;
+        height: 52px;
+        width: 12px;
+      }
+
+      .wave-top-decor .seaweed.two {
+        left: 48px;
+        height: 38px;
+        width: 8px;
+      }
+
+      .wave-top-decor .seaweed.three {
+        right: 20px;
+        height: 46px;
+        width: 12px;
+      }
+
+      .wave-top-decor .seaweed.four {
+        right: 50px;
+        height: 34px;
+        width: 8px;
+      }
+
+      .top-fish {
+        position: absolute;
+        width: 26px;
+        height: auto;
+        z-index: 3;
+        opacity: 0.9;
+        filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.28));
+      }
+
+      .top-fish svg {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      .top-fish.one {
+        top: 62px;
+        left: 72px;
+        animation: fishMoveRightTiny 9s ease-in-out infinite alternate;
+      }
+
+      .top-fish.two {
+        top: 44px;
+        right: 84px;
+        width: 22px;
+        transform: scaleX(-1);
+        animation: fishMoveLeftSmall 10s ease-in-out infinite alternate;
+      }
+
+      .top-fish.three {
+        top: 88px;
+        left: 48%;
+        width: 20px;
+        animation: fishMoveRightSmall 11s ease-in-out infinite alternate;
+        opacity: 0.76;
+      }
+
+      .top-jelly {
+        position: absolute;
+        width: 18px;
+        height: auto;
+        z-index: 2;
+        opacity: 0.44;
+        filter: drop-shadow(0 0 7px rgba(255, 255, 255, 0.32));
+      }
+
+      .top-jelly svg {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      .top-jelly.one {
+        top: 30px;
+        left: 26px;
+        animation: jellyDrift1 6s ease-in-out infinite;
+      }
+
+      .top-jelly.two {
+        top: 58px;
+        right: 30px;
+        width: 14px;
+        opacity: 0.32;
+        animation: jellyDrift2 7s ease-in-out infinite;
+      }
+
+      .top-shell {
+        position: absolute;
+        bottom: 18px;
+        width: 18px;
+        height: 11px;
+        border-radius: 50% 50% 40% 40%;
+        background: rgba(240, 201, 215, 0.9);
+        filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.32));
+        animation: shellFloat 4.6s ease-in-out infinite;
+        z-index: 2;
+      }
+
+      .top-shell.left {
+        left: 92px;
+      }
+
+      .top-shell.right {
+        right: 96px;
+        width: 16px;
+        height: 10px;
+        opacity: 0.82;
+      }
+
+      .top-star {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        width: 18px;
+        transform: translateX(-50%);
+        opacity: 0.72;
+        animation: starGlow 3.4s ease-in-out infinite;
+        filter: drop-shadow(0 0 7px rgba(255, 255, 255, 0.36));
+        z-index: 2;
+      }
+
+      .top-star svg {
+        display: block;
+        width: 100%;
+        height: auto;
       }
 
       .wave-top-svg {
@@ -205,6 +452,7 @@
         width: 100%;
         height: calc(100% + 14px);
         display: block;
+        z-index: 2;
         will-change: transform;
         animation: topWaveDrift 8s ease-in-out infinite;
       }
@@ -247,6 +495,7 @@
         width: 100%;
         height: calc(100% + 8px);
         pointer-events: none;
+        z-index: 4;
         opacity: 0.75;
         background:
           radial-gradient(
@@ -270,6 +519,32 @@
 
         50% {
           transform: translateY(4px);
+        }
+      }
+
+      @keyframes topWaterShine {
+        0% {
+          background-position: 120% 0;
+        }
+
+        100% {
+          background-position: -35% 0;
+        }
+      }
+
+      @keyframes topOceanBubbleRise {
+        0% {
+          transform: translateY(0) scale(0.8);
+          opacity: 0;
+        }
+
+        16% {
+          opacity: 0.85;
+        }
+
+        100% {
+          transform: translateY(-170px) scale(1.04);
+          opacity: 0;
         }
       }
 
@@ -325,6 +600,7 @@
         text-align: center;
         padding: 8px 22px 0;
         position: relative;
+        z-index: 2;
       }
 
       .youre-invited {
@@ -597,6 +873,14 @@
             transparent
           );
         box-shadow: inset 0 10px 30px rgba(255, 255, 255, 0.18);
+      }
+
+      .ocean-top {
+        margin-top: 0;
+        margin-bottom: 8px;
+        height: 182px;
+        transform: rotate(180deg);
+        transform-origin: center;
       }
 
       .water-light {
@@ -1073,8 +1357,9 @@
           height: 210px;
         }
 
-        .wave-top {
-          height: 144px;
+        .ocean-top {
+          height: 170px;
+          margin-bottom: 4px;
         }
       }
     </style>
@@ -1085,99 +1370,202 @@
     <div class="background-sparkles" id="backgroundSparkles"></div>
 
     <div class="card">
-      <div class="wave-top">
-        <svg
-          class="wave-top-svg"
-          viewBox="0 0 420 150"
-          preserveAspectRatio="none"
-          xmlns="http://www.w3.org/2000/svg"
-          aria-hidden="true"
-        >
-          <defs>
-            <linearGradient id="waveGradTop" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#f7e8ef" />
-              <stop offset="100%" stop-color="#efd9e5" stop-opacity="0.35" />
-            </linearGradient>
-          </defs>
-          <path
-            class="wave-back"
-            d="M0,60 C80,120 180,10 300,70 C360,100 420,40 420,40 L420,0 L0,0 Z"
-            fill="url(#waveGradTop)"
-          >
-            <animate
-              attributeName="d"
-              dur="9s"
-              repeatCount="indefinite"
-              values="M0,60 C80,120 180,10 300,70 C360,100 420,40 420,40 L420,0 L0,0 Z;
-                      M0,56 C92,106 184,18 306,62 C366,92 420,34 420,34 L420,0 L0,0 Z;
-                      M0,66 C74,126 174,4 296,78 C356,108 420,48 420,48 L420,0 L0,0 Z;
-                      M0,60 C80,120 180,10 300,70 C360,100 420,40 420,40 L420,0 L0,0 Z"
-            />
-          </path>
-          <path
-            class="wave-front"
-            d="M0,80 C100,20 200,110 320,60 C380,40 420,70 420,70 L420,0 L0,0 Z"
-            fill="rgba(255,255,255,0.4)"
-          >
-            <animate
-              attributeName="d"
-              dur="6.8s"
-              repeatCount="indefinite"
-              values="M0,80 C100,20 200,110 320,60 C380,40 420,70 420,70 L420,0 L0,0 Z;
-                      M0,74 C112,16 210,104 326,54 C386,36 420,62 420,62 L420,0 L0,0 Z;
-                      M0,86 C92,30 194,118 314,68 C376,48 420,78 420,78 L420,0 L0,0 Z;
-                      M0,80 C100,20 200,110 320,60 C380,40 420,70 420,70 L420,0 L0,0 Z"
-            />
-          </path>
-          <circle
-            class="foam-bubble bubble-1"
-            cx="54"
-            cy="28"
-            r="12"
-            fill="rgba(255,255,255,0.22)"
-          >
-            <animateTransform
-              attributeName="transform"
-              type="translate"
-              dur="8s"
-              repeatCount="indefinite"
-              values="0 0; 5 4; 0 0"
-            />
-          </circle>
-          <circle
-            class="foam-bubble bubble-2"
-            cx="360"
-            cy="32"
-            r="10"
-            fill="rgba(255,255,255,0.2)"
-          >
-            <animateTransform
-              attributeName="transform"
-              type="translate"
-              dur="9.5s"
-              repeatCount="indefinite"
-              values="0 0; -6 3; 0 0"
-            />
-          </circle>
-          <circle
-            class="foam-bubble bubble-3"
-            cx="212"
-            cy="24"
-            r="6"
-            fill="rgba(246,220,169,0.28)"
-          >
-            <animateTransform
-              attributeName="transform"
-              type="translate"
-              dur="6s"
-              repeatCount="indefinite"
-              values="0 0; 3 2; 0 0"
-            />
-          </circle>
-        </svg>
-        <div class="top-shine"></div>
-      </div>
+      <div class="ocean ocean-top">
+        <div class="water-light"></div>
+        <div class="ocean-bubbles" id="topOceanBubbles"></div>
 
+        <div class="ocean-decor">
+          <div class="seaweed one"></div>
+          <div class="seaweed two"></div>
+          <div class="seaweed three"></div>
+          <div class="seaweed four"></div>
+
+          <div class="fish-svg one">
+            <svg
+              viewBox="0 0 44 20"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
+              <path
+                d="M10 10 C14 4, 24 4, 30 10 C24 16, 14 16, 10 10 Z"
+                fill="#e8aebe"
+              />
+              <path d="M10 10 L2 4 L2 16 Z" fill="#e1a1b3" />
+              <circle cx="25.5" cy="9" r="1.2" fill="#6d5665" />
+            </svg>
+          </div>
+
+          <div class="fish-svg two">
+            <svg
+              viewBox="0 0 44 20"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
+              <path
+                d="M10 10 C14 4, 24 4, 30 10 C24 16, 14 16, 10 10 Z"
+                fill="#f2d291"
+              />
+              <path d="M10 10 L2 4 L2 16 Z" fill="#eccb82" />
+              <circle cx="25.5" cy="9" r="1.2" fill="#6d5665" />
+            </svg>
+          </div>
+
+          <div class="fish-svg three">
+            <svg
+              viewBox="0 0 44 20"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
+              <path
+                d="M10 10 C14 4, 24 4, 30 10 C24 16, 14 16, 10 10 Z"
+                fill="#cfa8df"
+              />
+              <path d="M10 10 L2 4 L2 16 Z" fill="#bf95d3" />
+              <circle cx="25.5" cy="9" r="1.2" fill="#6d5665" />
+            </svg>
+          </div>
+
+          <div class="fish-svg four">
+            <svg
+              viewBox="0 0 44 20"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
+              <path
+                d="M10 10 C14 4, 24 4, 30 10 C24 16, 14 16, 10 10 Z"
+                fill="#efbfd0"
+              />
+              <path d="M10 10 L2 4 L2 16 Z" fill="#e9adc2" />
+              <circle cx="25.5" cy="9" r="1.2" fill="#6d5665" />
+            </svg>
+          </div>
+
+          <div class="fish-svg five">
+            <svg
+              viewBox="0 0 44 20"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
+              <path
+                d="M10 10 C14 4, 24 4, 30 10 C24 16, 14 16, 10 10 Z"
+                fill="#dcbadf"
+              />
+              <path d="M10 10 L2 4 L2 16 Z" fill="#cda7d4" />
+              <circle cx="25.5" cy="9" r="1.2" fill="#6d5665" />
+            </svg>
+          </div>
+
+          <div class="jelly-svg one">
+            <svg
+              viewBox="0 0 28 40"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
+              <path
+                d="M14 6 C7 6, 5 12, 14 16 C23 12, 21 6, 14 6 Z"
+                fill="#efd0df"
+              />
+              <path
+                d="M9 16 C9 22, 8 27, 7 33"
+                stroke="#efd0df"
+                stroke-width="1.6"
+                stroke-linecap="round"
+              />
+              <path
+                d="M14 16 C14 22, 14 27, 14 34"
+                stroke="#efd0df"
+                stroke-width="1.6"
+                stroke-linecap="round"
+              />
+              <path
+                d="M19 16 C19 22, 20 27, 21 33"
+                stroke="#efd0df"
+                stroke-width="1.6"
+                stroke-linecap="round"
+              />
+            </svg>
+          </div>
+
+          <div class="jelly-svg two">
+            <svg
+              viewBox="0 0 28 40"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
+              <path
+                d="M14 6 C7 6, 5 12, 14 16 C23 12, 21 6, 14 6 Z"
+                fill="#efd0df"
+              />
+              <path
+                d="M9 16 C9 22, 8 27, 7 33"
+                stroke="#efd0df"
+                stroke-width="1.6"
+                stroke-linecap="round"
+              />
+              <path
+                d="M14 16 C14 22, 14 27, 14 34"
+                stroke="#efd0df"
+                stroke-width="1.6"
+                stroke-linecap="round"
+              />
+              <path
+                d="M19 16 C19 22, 20 27, 21 33"
+                stroke="#efd0df"
+                stroke-width="1.6"
+                stroke-linecap="round"
+              />
+            </svg>
+          </div>
+
+          <div class="jelly-svg three">
+            <svg
+              viewBox="0 0 28 40"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
+              <path
+                d="M14 6 C7 6, 5 12, 14 16 C23 12, 21 6, 14 6 Z"
+                fill="#efd0df"
+              />
+              <path
+                d="M9 16 C9 22, 8 27, 7 33"
+                stroke="#efd0df"
+                stroke-width="1.6"
+                stroke-linecap="round"
+              />
+              <path
+                d="M14 16 C14 22, 14 27, 14 34"
+                stroke="#efd0df"
+                stroke-width="1.6"
+                stroke-linecap="round"
+              />
+              <path
+                d="M19 16 C19 22, 20 27, 21 33"
+                stroke="#efd0df"
+                stroke-width="1.6"
+                stroke-linecap="round"
+              />
+            </svg>
+          </div>
+
+          <div class="star-svg">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+              <polygon
+                points="50,5 61,35 95,35 67,57 78,90 50,70 22,90 33,57 5,35 39,35"
+                fill="#f6dca9"
+              />
+            </svg>
+          </div>
+
+          <div class="shell-svg main"></div>
+          <div class="shell-svg left"></div>
+          <div class="shell-svg mid"></div>
+        </div>
+
+        <div class="wave wave-1"></div>
+        <div class="wave wave-2"></div>
+        <div class="wave wave-3"></div>
+      </div>
       <div class="content">
         <div>
           <p class="youre-invited">com carinho,</p>
@@ -1493,7 +1881,8 @@
       for (let i = 0; i < 18; i++) {
         const bubble = document.createElement("div");
 
-        bubble.className = "bubble";
+        const fromTop = i % 2 === 0;
+        bubble.className = `bubble ${fromTop ? "from-top" : "from-bottom"}`;
         const size = Math.random() * 14 + 6;
         bubble.style.width = `${size}px`;
         bubble.style.height = `${size}px`;
@@ -1501,6 +1890,10 @@
         bubble.style.animationDuration = `${Math.random() * 7 + 6}s`;
         bubble.style.animationDelay = `${Math.random() * 8}s`;
         bubble.style.opacity = (Math.random() * 0.35 + 0.2).toFixed(2);
+        bubble.style.setProperty(
+          "--bubble-drift",
+          `${Math.random() * 42 - 21}px`,
+        );
         backgroundBubbles.appendChild(bubble);
       }
 
@@ -1527,13 +1920,29 @@
         oceanBubbles.appendChild(bubble);
       }
 
+      const topOceanBubbles = document.getElementById("topOceanBubbles");
+      for (let i = 0; i < 10; i++) {
+        const bubble = document.createElement("div");
+        bubble.className = "ocean-bubble";
+        const size = Math.random() * 9 + 5;
+        bubble.style.width = `${size}px`;
+        bubble.style.height = `${size}px`;
+        bubble.style.left = `${Math.random() * 100}%`;
+        bubble.style.animationDuration = `${Math.random() * 4 + 4}s`;
+        bubble.style.animationDelay = `${Math.random() * 4}s`;
+        topOceanBubbles.appendChild(bubble);
+      }
+
       window.addEventListener("scroll", () => {
         const scrollY = window.scrollY;
         const bubbles = document.querySelectorAll(".bubble");
 
         bubbles.forEach((bubble, index) => {
           const speed = ((index % 5) + 1) * 0.25;
-          bubble.style.transform = `translateY(-${scrollY * speed}px)`;
+          bubble.style.setProperty(
+            "--parallax-shift",
+            `${-scrollY * speed}px`,
+          );
         });
       });
     </script>
