@@ -1,1028 +1,1356 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>Aniversário da Eloá 🐚</title>
-  <meta name="theme-color" content="#f6dde8" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <title>Aniversário da Eloá 🐚</title>
+    <meta name="theme-color" content="#f6dde8" />
 
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    :root {
-      --bg-top: #fffafd;
-      --bg-mid: #f8edf3;
-      --bg-bottom: #eed7e3;
-
-      --card: rgba(255, 251, 253, 0.95);
-      --card-line: rgba(255,255,255,0.9);
-
-      --text: #6d5665;
-      --soft: #a17f92;
-      --soft-2: #c796ad;
-
-      --gold: #f4d28d;
-      --gold-2: #fff2c8;
-
-      --icon-stroke: #b88fa4;
-      --icon-border: #ead1dc;
-      --icon-bg: rgba(255,255,255,0.72);
-
-      --btn-gold-1: #f7e0a8;
-      --btn-gold-2: #efcb83;
-      --btn-gold-text: #6e5430;
-
-      --ocean-blue: rgba(182, 205, 228, 0.18);
-      --ocean-1: #f3dfe9;
-      --ocean-2: #ebd2df;
-      --ocean-3: #e2c0d2;
-      --ocean-base: #ddb6c8;
-
-      --seaweed-1: #dfb8c9;
-      --seaweed-2: #f0d3df;
-
-      --shell: #f0c9d7;
-      --star: #f3d98e;
-      --jelly: #efd0df;
-
-      --fish-1: #e8aebe;
-      --fish-1-tail: #e1a1b3;
-      --fish-2: #f2d291;
-      --fish-2-tail: #eccb82;
-      --fish-3: #cfa8df;
-      --fish-3-tail: #bf95d3;
-      --fish-4: #efbfd0;
-      --fish-4-tail: #e9adc2;
-      --fish-5: #dcbadf;
-      --fish-5-tail: #cda7d4;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 18px;
-      overflow-x: hidden;
-      position: relative;
-      font-family: 'DM Sans', sans-serif;
-      color: var(--text);
-      background:
-        radial-gradient(circle at top, var(--bg-top) 0%, var(--bg-mid) 35%, var(--bg-bottom) 100%);
-    }
-
-    .background-bubbles,
-    .background-sparkles {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      overflow: hidden;
-      z-index: 0;
-    }
-
-    .bubble {
-      position: absolute;
-      bottom: -120px;
-      border-radius: 50%;
-      background: rgba(190, 215, 238, 0.18);
-      border: 1px solid rgba(255,255,255,0.45);
-      animation: rise linear infinite;
-      will-change: transform;
-    }
-
-    .sparkle {
-      position: absolute;
-      width: 12px;
-      height: 12px;
-      opacity: 0.45;
-      animation: twinkle 3.8s ease-in-out infinite;
-    }
-
-    .sparkle::before,
-    .sparkle::after {
-      content: "";
-      position: absolute;
-      background: rgba(255,255,255,0.95);
-      border-radius: 999px;
-    }
-
-    .sparkle::before {
-      width: 2px;
-      height: 12px;
-      left: 5px;
-      top: 0;
-    }
-
-    .sparkle::after {
-      width: 12px;
-      height: 2px;
-      left: 0;
-      top: 5px;
-    }
-
-    @keyframes rise {
-      0% {
-        transform: translateY(0) scale(0.8);
-        opacity: 0;
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
       }
-      10% {
-        opacity: 0.85;
+
+      :root {
+        --bg-top: #fffafd;
+        --bg-mid: #f8edf3;
+        --bg-bottom: #eed7e3;
+
+        --card: rgba(255, 251, 253, 0.95);
+        --card-line: rgba(255, 255, 255, 0.9);
+
+        --text: #6d5665;
+        --soft: #a17f92;
+        --soft-2: #c796ad;
+
+        --gold: #f4d28d;
+        --gold-2: #fff2c8;
+
+        --icon-stroke: #b88fa4;
+        --icon-border: #ead1dc;
+        --icon-bg: rgba(255, 255, 255, 0.72);
+
+        --btn-gold-1: #f7e0a8;
+        --btn-gold-2: #efcb83;
+        --btn-gold-text: #6e5430;
+
+        --ocean-blue: rgba(182, 205, 228, 0.18);
+        --ocean-1: #f3dfe9;
+        --ocean-2: #ebd2df;
+        --ocean-3: #e2c0d2;
+        --ocean-base: #ddb6c8;
+
+        --seaweed-1: #dfb8c9;
+        --seaweed-2: #f0d3df;
+
+        --shell: #f0c9d7;
+        --star: #f3d98e;
+        --jelly: #efd0df;
+
+        --fish-1: #e8aebe;
+        --fish-1-tail: #e1a1b3;
+        --fish-2: #f2d291;
+        --fish-2-tail: #eccb82;
+        --fish-3: #cfa8df;
+        --fish-3-tail: #bf95d3;
+        --fish-4: #efbfd0;
+        --fish-4-tail: #e9adc2;
+        --fish-5: #dcbadf;
+        --fish-5-tail: #cda7d4;
       }
-      100% {
-        transform: translateY(-120vh) scale(1.06);
-        opacity: 0;
+
+      html {
+        scroll-behavior: smooth;
       }
-    }
 
-    @keyframes twinkle {
-      0%, 100% {
-        transform: scale(0.85);
-        opacity: 0.15;
+      body {
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 18px;
+        overflow-x: hidden;
+        position: relative;
+        font-family: "DM Sans", sans-serif;
+        color: var(--text);
+        background: radial-gradient(
+          circle at top,
+          var(--bg-top) 0%,
+          var(--bg-mid) 35%,
+          var(--bg-bottom) 100%
+        );
       }
-      50% {
-        transform: scale(1.08);
-        opacity: 0.8;
+
+      .background-bubbles,
+      .background-sparkles {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        overflow: hidden;
+        z-index: 0;
       }
-    }
 
-    .card {
-      width: 100%;
-      max-width: 450px;
-      position: relative;
-      z-index: 1;
-      overflow: hidden;
-      border-radius: 32px;
-      background: var(--card);
-      border: 1px solid var(--card-line);
-      box-shadow:
-        0 18px 48px rgba(173, 137, 154, 0.18),
-        0 2px 0 rgba(255,255,255,0.55) inset;
-      backdrop-filter: blur(8px);
-    }
-
-    .wave-top {
-      position: relative;
-      width: 100%;
-      height: 158px;
-      overflow: hidden;
-      background: linear-gradient(to bottom, rgba(255,255,255,0.38), transparent);
-    }
-
-    .wave-top svg {
-      width: 100%;
-      height: 100%;
-      display: block;
-    }
-
-    .top-shine {
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      opacity: 0.75;
-      background:
-        radial-gradient(circle at 20% 18%, rgba(255,255,255,0.34), transparent 28%),
-        radial-gradient(circle at 80% 20%, rgba(255,255,255,0.24), transparent 26%);
-    }
-
-    .content {
-      text-align: center;
-      padding: 8px 22px 0;
-      position: relative;
-    }
-
-    .youre-invited {
-      font-size: 12px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--soft);
-      margin-bottom: 10px;
-    }
-
-    .title {
-      font-family: 'Great Vibes', cursive;
-      font-size: 60px;
-      line-height: 1;
-      color: var(--soft-2);
-      margin-bottom: 0;
-    }
-
-    .subtitle {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 22px;
-      line-height: 1.1;
-      font-style: italic;
-      color: var(--soft);
-      margin-bottom: 6px;
-    }
-
-    .name {
-      font-family: 'Great Vibes', cursive;
-      font-size: 112px;
-      line-height: 1;
-      margin-bottom: 6px;
-      background: linear-gradient(
-        90deg,
-        var(--gold) 0%,
-        var(--gold-2) 18%,
-        var(--gold) 36%,
-        #fff8df 50%,
-        var(--gold) 64%,
-        var(--gold-2) 82%,
-        var(--gold) 100%
-      );
-      background-size: 220% auto;
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      animation: shimmerName 8s linear infinite;
-      filter: drop-shadow(0 2px 6px rgba(219, 185, 112, 0.12));
-    }
-
-    @keyframes shimmerName {
-      0% { background-position: 200% center; }
-      100% { background-position: -20% center; }
-    }
-
-    .photo-wrap {
-      position: relative;
-      display: flex;
-      justify-content: center;
-      margin: 6px 0 8px;
-    }
-
-    .photo-glow {
-      position: absolute;
-      width: 330px;
-      height: 330px;
-      top: 42px;
-      border-radius: 50%;
-      pointer-events: none;
-      filter: blur(14px);
-      background:
-        radial-gradient(circle, rgba(255,255,255,0.95) 0%, rgba(246,221,232,0.78) 44%, rgba(246,221,232,0) 76%);
-      animation: glowPulse 4.8s ease-in-out infinite;
-    }
-
-    .photo-frame {
-      width: 430px;
-      height: 430px;
-      display: flex;
-      align-items: flex-end;
-      justify-content: center;
-      position: relative;
-      z-index: 1;
-      filter: drop-shadow(0 14px 24px rgba(194, 156, 173, 0.2));
-      animation: floatPhoto 4.8s ease-in-out infinite;
-    }
-
-    .photo-frame img {
-      max-width: 100%;
-      max-height: 100%;
-      object-fit: contain;
-      display: block;
-    }
-
-    @keyframes floatPhoto {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
-
-    @keyframes glowPulse {
-      0%, 100% {
-        transform: scale(1);
-        opacity: 0.72;
+      .bubble {
+        position: absolute;
+        bottom: -120px;
+        border-radius: 50%;
+        background: rgba(190, 215, 238, 0.18);
+        border: 1px solid rgba(255, 255, 255, 0.45);
+        animation: rise linear infinite;
+        will-change: transform;
       }
-      50% {
-        transform: scale(1.07);
-        opacity: 0.95;
+
+      .sparkle {
+        position: absolute;
+        width: 12px;
+        height: 12px;
+        opacity: 0.45;
+        animation: twinkle 3.8s ease-in-out infinite;
       }
-    }
 
-    .text {
-      font-size: 15px;
-      line-height: 1.65;
-      margin: 4px 0 22px;
-      color: var(--text);
-    }
+      .sparkle::before,
+      .sparkle::after {
+        content: "";
+        position: absolute;
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 999px;
+      }
 
-    .divider {
-      width: 100%;
-      height: 1px;
-      background: linear-gradient(to right, transparent, #ecd3de, transparent);
-      margin: 8px 0 18px;
-    }
+      .sparkle::before {
+        width: 2px;
+        height: 12px;
+        left: 5px;
+        top: 0;
+      }
 
-    .info-list {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-      margin-top: 4px;
-    }
+      .sparkle::after {
+        width: 12px;
+        height: 2px;
+        left: 0;
+        top: 5px;
+      }
 
-    .info-card {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      text-align: left;
-    }
+      @keyframes rise {
+        0% {
+          transform: translateY(0) scale(0.8);
+          opacity: 0;
+        }
 
-    .info-icon {
-      width: 40px;
-      height: 40px;
-      min-width: 40px;
-      border-radius: 50%;
-      background: var(--icon-bg);
-      border: 1px solid var(--icon-border);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 6px 14px rgba(214, 187, 201, 0.14);
-    }
+        10% {
+          opacity: 0.85;
+        }
 
-    .info-icon svg {
-      width: 18px;
-      height: 18px;
-      stroke: var(--icon-stroke);
-      fill: none;
-      stroke-width: 1.8;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
+        100% {
+          transform: translateY(-120vh) scale(1.06);
+          opacity: 0;
+        }
+      }
 
-    .info-content {
-      flex: 1;
-    }
+      @keyframes twinkle {
+        0%,
+        100% {
+          transform: scale(0.85);
+          opacity: 0.15;
+        }
 
-    .info-content strong {
-      display: block;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 22px;
-      font-weight: 500;
-      line-height: 1.1;
-      color: var(--text);
-      margin-bottom: 2px;
-    }
+        50% {
+          transform: scale(1.08);
+          opacity: 0.8;
+        }
+      }
 
-    .info-content span {
-      display: block;
-      font-size: 14px;
-      line-height: 1.45;
-      color: var(--soft);
-    }
+      .card {
+        width: 100%;
+        max-width: 450px;
+        position: relative;
+        z-index: 1;
+        overflow: hidden;
+        border-radius: 32px;
+        background: var(--card);
+        border: 1px solid var(--card-line);
+        box-shadow:
+          0 18px 48px rgba(173, 137, 154, 0.18),
+          0 2px 0 rgba(255, 255, 255, 0.55) inset;
+        backdrop-filter: blur(8px);
+      }
 
-    .buttons {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin-top: 24px;
-    }
+      .wave-top {
+        position: relative;
+        width: 100%;
+        height: 158px;
+        overflow: hidden;
+        background: linear-gradient(
+          to bottom,
+          rgba(255, 255, 255, 0.38),
+          transparent
+        );
+      }
 
-    .btn {
-      display: block;
-      text-decoration: none;
-      text-align: center;
-      padding: 14px 16px;
-      border-radius: 999px;
-      font-size: 14px;
-      font-weight: 700;
-      transition: transform .2s ease, box-shadow .2s ease, opacity .2s ease;
-    }
+      .wave-top svg {
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
 
-    .btn:hover {
-      transform: translateY(-1px);
-    }
+      .top-shine {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        opacity: 0.75;
+        background:
+          radial-gradient(
+            circle at 20% 18%,
+            rgba(255, 255, 255, 0.34),
+            transparent 28%
+          ),
+          radial-gradient(
+            circle at 80% 20%,
+            rgba(255, 255, 255, 0.24),
+            transparent 26%
+          );
+      }
 
-    .btn.primary {
-      background: linear-gradient(135deg, var(--btn-gold-1), var(--btn-gold-2));
-      color: var(--btn-gold-text);
-      box-shadow: 0 8px 20px rgba(243, 213, 158, 0.28);
-    }
+      .content {
+        text-align: center;
+        padding: 8px 22px 0;
+        position: relative;
+      }
 
-    .btn.secondary {
-      background: rgba(255,255,255,0.66);
-      border: 1px solid var(--icon-border);
-      color: #b88fa4;
-    }
+      .youre-invited {
+        font-size: 12px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: var(--soft);
+        margin-bottom: 10px;
+      }
 
-    .footer {
-      margin: 20px 0 18px;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 16px;
-      font-style: italic;
-      color: var(--soft);
-    }
+      .title {
+        font-family: "Great Vibes", cursive;
+        font-size: 60px;
+        line-height: 1;
+        color: var(--soft-2);
+        margin-bottom: 0;
+      }
 
-    .ocean {
-      position: relative;
-      margin-top: 10px;
-      height: 220px;
-      overflow: hidden;
-      background:
-        linear-gradient(to top, var(--ocean-blue), rgba(242,223,232,0.78), transparent),
-        linear-gradient(to top, var(--ocean-base), rgba(242,223,232,0.78), transparent);
-      box-shadow: inset 0 10px 30px rgba(255,255,255,0.18);
-    }
+      .subtitle {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 22px;
+        line-height: 1.1;
+        font-style: italic;
+        color: var(--soft);
+        margin-bottom: 6px;
+      }
 
-    .water-light {
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      z-index: 1;
-      opacity: 0.35;
-      background:
-        linear-gradient(
+      .name {
+        padding-top: 15px;
+        font-family: "Great Vibes", cursive;
+        font-size: 112px;
+        line-height: 1;
+        margin-bottom: 6px;
+        background: linear-gradient(
+          90deg,
+          var(--gold) 0%,
+          var(--gold-2) 18%,
+          var(--gold) 36%,
+          #fff8df 50%,
+          var(--gold) 64%,
+          var(--gold-2) 82%,
+          var(--gold) 100%
+        );
+        background-size: 220% auto;
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        animation: shimmerName 8s linear infinite;
+        filter: drop-shadow(0 2px 6px rgba(219, 185, 112, 0.12));
+      }
+
+      @keyframes shimmerName {
+        0% {
+          background-position: 200% center;
+        }
+
+        100% {
+          background-position: -20% center;
+        }
+      }
+
+      .photo-wrap {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        margin: 6px 0 8px;
+      }
+
+      .photo-glow {
+        position: absolute;
+        width: 330px;
+        height: 330px;
+        top: 42px;
+        border-radius: 50%;
+        pointer-events: none;
+        filter: blur(14px);
+        background: radial-gradient(
+          circle,
+          rgba(255, 255, 255, 0.95) 0%,
+          rgba(246, 221, 232, 0.78) 44%,
+          rgba(246, 221, 232, 0) 76%
+        );
+        animation: glowPulse 4.8s ease-in-out infinite;
+      }
+
+      .photo-frame {
+        width: 430px;
+        height: 430px;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        position: relative;
+        z-index: 1;
+        filter: drop-shadow(0 14px 24px rgba(194, 156, 173, 0.2));
+        animation: floatPhoto 4.8s ease-in-out infinite;
+      }
+
+      .photo-frame img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+        display: block;
+      }
+
+      @keyframes floatPhoto {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+
+      @keyframes glowPulse {
+        0%,
+        100% {
+          transform: scale(1);
+          opacity: 0.72;
+        }
+
+        50% {
+          transform: scale(1.07);
+          opacity: 0.95;
+        }
+      }
+
+      .text {
+        font-size: 15px;
+        line-height: 1.65;
+        margin: 4px 0 22px;
+        color: var(--text);
+      }
+
+      .divider {
+        width: 100%;
+        height: 1px;
+        background: linear-gradient(
+          to right,
+          transparent,
+          #ecd3de,
+          transparent
+        );
+        margin: 8px 0 18px;
+      }
+
+      .info-list {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        margin-top: 4px;
+      }
+
+      .info-card {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        text-align: left;
+      }
+
+      .info-icon {
+        width: 40px;
+        height: 40px;
+        min-width: 40px;
+        border-radius: 50%;
+        background: var(--icon-bg);
+        border: 1px solid var(--icon-border);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 6px 14px rgba(214, 187, 201, 0.14);
+      }
+
+      .info-icon svg {
+        width: 18px;
+        height: 18px;
+        stroke: var(--icon-stroke);
+        fill: none;
+        stroke-width: 1.8;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .info-content {
+        flex: 1;
+      }
+
+      .info-content strong {
+        display: block;
+        font-family: "Cormorant Garamond", serif;
+        font-size: 22px;
+        font-weight: 500;
+        line-height: 1.1;
+        color: var(--text);
+        margin-bottom: 2px;
+      }
+
+      .info-content span {
+        display: block;
+        font-size: 14px;
+        line-height: 1.45;
+        color: var(--soft);
+      }
+
+      .buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 24px;
+      }
+
+      .btn {
+        display: block;
+        text-decoration: none;
+        text-align: center;
+        padding: 14px 16px;
+        border-radius: 999px;
+        font-size: 14px;
+        font-weight: 700;
+        transition:
+          transform 0.2s ease,
+          box-shadow 0.2s ease,
+          opacity 0.2s ease;
+      }
+
+      .btn:hover {
+        transform: translateY(-1px);
+      }
+
+      .btn.primary {
+        background: linear-gradient(
+          135deg,
+          var(--btn-gold-1),
+          var(--btn-gold-2)
+        );
+        color: var(--btn-gold-text);
+        box-shadow: 0 8px 20px rgba(243, 213, 158, 0.28);
+      }
+
+      .btn.secondary {
+        background: rgba(255, 255, 255, 0.66);
+        border: 1px solid var(--icon-border);
+        color: #b88fa4;
+      }
+
+      .footer {
+        margin: 20px 0 18px;
+        font-family: "Cormorant Garamond", serif;
+        font-size: 16px;
+        font-style: italic;
+        color: var(--soft);
+      }
+
+      .ocean {
+        position: relative;
+        margin-top: 10px;
+        height: 220px;
+        overflow: hidden;
+        background:
+          linear-gradient(
+            to top,
+            var(--ocean-blue),
+            rgba(242, 223, 232, 0.78),
+            transparent
+          ),
+          linear-gradient(
+            to top,
+            var(--ocean-base),
+            rgba(242, 223, 232, 0.78),
+            transparent
+          );
+        box-shadow: inset 0 10px 30px rgba(255, 255, 255, 0.18);
+      }
+
+      .water-light {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        z-index: 1;
+        opacity: 0.35;
+        background: linear-gradient(
           115deg,
           transparent 0%,
-          rgba(255,255,255,0.25) 20%,
+          rgba(255, 255, 255, 0.25) 20%,
           transparent 35%,
           transparent 55%,
-          rgba(255,255,255,0.18) 68%,
+          rgba(255, 255, 255, 0.18) 68%,
           transparent 82%
         );
-      background-size: 160% 100%;
-      animation: waterShine 10s linear infinite;
-    }
-
-    @keyframes waterShine {
-      0% { background-position: 120% 0; }
-      100% { background-position: -40% 0; }
-    }
-
-    .wave {
-      position: absolute;
-      left: -20%;
-      width: 140%;
-      border-radius: 45%;
-      opacity: 0.95;
-    }
-
-    .wave.wave-1 {
-      bottom: -34px;
-      height: 120px;
-      background: var(--ocean-1);
-      animation: waveMove1 8s ease-in-out infinite;
-    }
-
-    .wave.wave-2 {
-      bottom: -42px;
-      height: 110px;
-      background: var(--ocean-2);
-      opacity: 0.84;
-      animation: waveMove2 10s ease-in-out infinite;
-    }
-
-    .wave.wave-3 {
-      bottom: -50px;
-      height: 105px;
-      background: var(--ocean-3);
-      opacity: 0.78;
-      animation: waveMove3 12s ease-in-out infinite;
-    }
-
-    @keyframes waveMove1 {
-      0%, 100% { transform: translateX(0) translateY(0); }
-      50% { transform: translateX(20px) translateY(-6px); }
-    }
-
-    @keyframes waveMove2 {
-      0%, 100% { transform: translateX(0) translateY(0); }
-      50% { transform: translateX(-25px) translateY(6px); }
-    }
-
-    @keyframes waveMove3 {
-      0%, 100% { transform: translateX(0) translateY(0); }
-      50% { transform: translateX(15px) translateY(-4px); }
-    }
-
-    .ocean-bubbles {
-      position: absolute;
-      inset: 0;
-      overflow: hidden;
-      pointer-events: none;
-      z-index: 2;
-    }
-
-    .ocean-bubble {
-      position: absolute;
-      bottom: -30px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.16);
-      border: 1px solid rgba(255,255,255,0.45);
-      animation: oceanBubbleRise linear infinite;
-    }
-
-    @keyframes oceanBubbleRise {
-      0% {
-        transform: translateY(0) scale(0.8);
-        opacity: 0;
+        background-size: 160% 100%;
+        animation: waterShine 10s linear infinite;
       }
-      15% {
-        opacity: 0.9;
+
+      @keyframes waterShine {
+        0% {
+          background-position: 120% 0;
+        }
+
+        100% {
+          background-position: -40% 0;
+        }
       }
-      80% {
-        opacity: 0.6;
+
+      .wave {
+        position: absolute;
+        left: -20%;
+        width: 140%;
+        border-radius: 45%;
+        opacity: 0.95;
       }
-      100% {
-        transform: translateY(-260px) scale(1.1);
-        opacity: 0;
+
+      .wave.wave-1 {
+        bottom: -34px;
+        height: 120px;
+        background: var(--ocean-1);
+        animation: waveMove1 8s ease-in-out infinite;
       }
-    }
 
-    .ocean-decor {
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      z-index: 3;
-    }
+      .wave.wave-2 {
+        bottom: -42px;
+        height: 110px;
+        background: var(--ocean-2);
+        opacity: 0.84;
+        animation: waveMove2 10s ease-in-out infinite;
+      }
 
-    .seaweed {
-      position: absolute;
-      bottom: 0;
-      width: 16px;
-      border-radius: 16px 16px 0 0;
-      background: linear-gradient(to top, var(--seaweed-1), var(--seaweed-2));
-      transform-origin: bottom center;
-      opacity: 0.88;
-    }
+      .wave.wave-3 {
+        bottom: -50px;
+        height: 105px;
+        background: var(--ocean-3);
+        opacity: 0.78;
+        animation: waveMove3 12s ease-in-out infinite;
+      }
 
-    .seaweed.one { left: 20px; height: 92px; animation: sway1 4s ease-in-out infinite; }
-    .seaweed.two { left: 56px; height: 62px; width: 10px; animation: sway2 5s ease-in-out infinite; }
-    .seaweed.three { right: 24px; height: 82px; animation: sway2 4.5s ease-in-out infinite; }
-    .seaweed.four { right: 54px; height: 56px; width: 10px; animation: sway1 4.8s ease-in-out infinite; }
+      @keyframes waveMove1 {
+        0%,
+        100% {
+          transform: translateX(0) translateY(0);
+        }
 
-    @keyframes sway1 {
-      0%, 100% { transform: rotate(-4deg); }
-      50% { transform: rotate(4deg); }
-    }
+        50% {
+          transform: translateX(20px) translateY(-6px);
+        }
+      }
 
-    @keyframes sway2 {
-      0%, 100% { transform: rotate(4deg); }
-      50% { transform: rotate(-4deg); }
-    }
+      @keyframes waveMove2 {
+        0%,
+        100% {
+          transform: translateX(0) translateY(0);
+        }
 
-    .star-svg {
-      position: absolute;
-      bottom: 24px;
-      left: 42%;
-      width: 28px;
-      opacity: 0.92;
-      animation: starGlow 3s ease-in-out infinite;
-      filter: drop-shadow(0 0 8px rgba(255,255,255,0.45));
-      z-index: 4;
-    }
+        50% {
+          transform: translateX(-25px) translateY(6px);
+        }
+      }
 
-    @keyframes starGlow {
-      0%, 100% { transform: scale(1); opacity: 0.82; }
-      50% { transform: scale(1.08); opacity: 1; }
-    }
+      @keyframes waveMove3 {
+        0%,
+        100% {
+          transform: translateX(0) translateY(0);
+        }
 
-    .shell-svg {
-      position: absolute;
-      border-radius: 50% 50% 40% 40%;
-      background: var(--shell);
-      filter: drop-shadow(0 0 10px rgba(255,255,255,0.5));
-      animation: shellFloat 4s ease-in-out infinite;
-      z-index: 4;
-    }
+        50% {
+          transform: translateX(15px) translateY(-4px);
+        }
+      }
 
-    .shell-svg.main {
-      bottom: 18px;
-      right: 34px;
-      width: 30px;
-      height: 18px;
-      opacity: 0.94;
-    }
+      .ocean-bubbles {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+        pointer-events: none;
+        z-index: 2;
+      }
 
-    .shell-svg.left {
-      left: 88px;
-      bottom: 20px;
-      width: 22px;
-      height: 14px;
-      opacity: 0.84;
-      animation-duration: 4.8s;
-    }
+      .ocean-bubble {
+        position: absolute;
+        bottom: -30px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.16);
+        border: 1px solid rgba(255, 255, 255, 0.45);
+        animation: oceanBubbleRise linear infinite;
+      }
 
-    .shell-svg.mid {
-      right: 104px;
-      bottom: 28px;
-      width: 20px;
-      height: 12px;
-      opacity: 0.78;
-      animation-duration: 5.2s;
-    }
+      @keyframes oceanBubbleRise {
+        0% {
+          transform: translateY(0) scale(0.8);
+          opacity: 0;
+        }
 
-    @keyframes shellFloat {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-4px); }
-    }
+        15% {
+          opacity: 0.9;
+        }
 
-    .fish-svg {
-      position: absolute;
-      width: 32px;
-      height: auto;
-      z-index: 4;
-      opacity: 0.95;
-      filter: drop-shadow(0 0 6px rgba(255,255,255,0.32));
-    }
+        80% {
+          opacity: 0.6;
+        }
 
-    .fish-svg.one {
-      top: 56px;
-      left: 26px;
-      animation: fishMoveRight 12s ease-in-out infinite alternate;
-    }
+        100% {
+          transform: translateY(-260px) scale(1.1);
+          opacity: 0;
+        }
+      }
 
-    .fish-svg.two {
-      top: 112px;
-      left: 120px;
-      animation: fishMoveRightSmall 10s ease-in-out infinite alternate;
-    }
+      .ocean-decor {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        z-index: 3;
+      }
 
-    .fish-svg.three {
-      top: 72px;
-      right: 42px;
-      transform: scaleX(-1);
-      animation: fishMoveLeft 14s ease-in-out infinite alternate;
-    }
+      .seaweed {
+        position: absolute;
+        bottom: 0;
+        width: 16px;
+        border-radius: 16px 16px 0 0;
+        background: linear-gradient(to top, var(--seaweed-1), var(--seaweed-2));
+        transform-origin: bottom center;
+        opacity: 0.88;
+      }
 
-    .fish-svg.four {
-      top: 128px;
-      right: 122px;
-      transform: scaleX(-1);
-      animation: fishMoveLeftSmall 11s ease-in-out infinite alternate;
-      width: 24px;
-      opacity: 0.82;
-    }
+      .seaweed.one {
+        left: 20px;
+        height: 92px;
+        animation: sway1 4s ease-in-out infinite;
+      }
 
-    .fish-svg.five {
-      top: 84px;
-      left: 202px;
-      width: 24px;
-      animation: fishMoveRightTiny 9s ease-in-out infinite alternate;
-      opacity: 0.82;
-    }
+      .seaweed.two {
+        left: 56px;
+        height: 62px;
+        width: 10px;
+        animation: sway2 5s ease-in-out infinite;
+      }
 
-    .fish-svg svg {
-      display: block;
-      width: 100%;
-      height: auto;
-    }
+      .seaweed.three {
+        right: 24px;
+        height: 82px;
+        animation: sway2 4.5s ease-in-out infinite;
+      }
 
-    @keyframes fishMoveRight {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(85px); }
-    }
+      .seaweed.four {
+        right: 54px;
+        height: 56px;
+        width: 10px;
+        animation: sway1 4.8s ease-in-out infinite;
+      }
 
-    @keyframes fishMoveRightSmall {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(55px); }
-    }
+      @keyframes sway1 {
+        0%,
+        100% {
+          transform: rotate(-4deg);
+        }
 
-    @keyframes fishMoveLeft {
-      0% { transform: translateX(0) scaleX(-1); }
-      100% { transform: translateX(-85px) scaleX(-1); }
-    }
+        50% {
+          transform: rotate(4deg);
+        }
+      }
 
-    @keyframes fishMoveLeftSmall {
-      0% { transform: translateX(0) scaleX(-1); }
-      100% { transform: translateX(-55px) scaleX(-1); }
-    }
+      @keyframes sway2 {
+        0%,
+        100% {
+          transform: rotate(4deg);
+        }
 
-    @keyframes fishMoveRightTiny {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(40px); }
-    }
+        50% {
+          transform: rotate(-4deg);
+        }
+      }
 
-    .jelly-svg {
-      position: absolute;
-      width: 22px;
-      height: auto;
-      z-index: 4;
-      opacity: 0.65;
-      filter: drop-shadow(0 0 8px rgba(255,255,255,0.38));
-    }
+      .star-svg {
+        position: absolute;
+        bottom: 24px;
+        left: 42%;
+        width: 28px;
+        opacity: 0.92;
+        animation: starGlow 3s ease-in-out infinite;
+        filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.45));
+        z-index: 4;
+      }
 
-    .jelly-svg.one {
-      top: 28px;
-      right: 34px;
-      animation: jellyDrift1 6.5s ease-in-out infinite;
-    }
+      @keyframes starGlow {
+        0%,
+        100% {
+          transform: scale(1);
+          opacity: 0.82;
+        }
 
-    .jelly-svg.two {
-      top: 54px;
-      left: 82px;
-      width: 16px;
-      opacity: 0.5;
-      animation: jellyDrift2 7.4s ease-in-out infinite;
-    }
+        50% {
+          transform: scale(1.08);
+          opacity: 1;
+        }
+      }
 
-    .jelly-svg.three {
-      top: 44px;
-      left: 230px;
-      width: 14px;
-      opacity: 0.38;
-      animation: jellyDrift3 8s ease-in-out infinite;
-    }
+      .shell-svg {
+        position: absolute;
+        border-radius: 50% 50% 40% 40%;
+        background: var(--shell);
+        filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+        animation: shellFloat 4s ease-in-out infinite;
+        z-index: 4;
+      }
 
-    @keyframes jellyDrift1 {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-8px); }
-    }
+      .shell-svg.main {
+        bottom: 18px;
+        right: 34px;
+        width: 30px;
+        height: 18px;
+        opacity: 0.94;
+      }
 
-    @keyframes jellyDrift2 {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-6px); }
-    }
+      .shell-svg.left {
+        left: 88px;
+        bottom: 20px;
+        width: 22px;
+        height: 14px;
+        opacity: 0.84;
+        animation-duration: 4.8s;
+      }
 
-    @keyframes jellyDrift3 {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-5px); }
-    }
+      .shell-svg.mid {
+        right: 104px;
+        bottom: 28px;
+        width: 20px;
+        height: 12px;
+        opacity: 0.78;
+        animation-duration: 5.2s;
+      }
 
-    @media (max-width: 480px) {
-      .card { max-width: 100%; }
-      .content { padding: 8px 18px 0; }
-      .title { font-size: 56px; }
-      .subtitle { font-size: 20px; }
-      .name { font-size: 96px; }
-      .photo-glow {
-        width: 280px;
-        height: 280px;
+      @keyframes shellFloat {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+
+        50% {
+          transform: translateY(-4px);
+        }
+      }
+
+      .fish-svg {
+        position: absolute;
+        width: 32px;
+        height: auto;
+        z-index: 4;
+        opacity: 0.95;
+        filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.32));
+      }
+
+      .fish-svg.one {
+        top: 56px;
+        left: 26px;
+        animation: fishMoveRight 12s ease-in-out infinite alternate;
+      }
+
+      .fish-svg.two {
+        top: 112px;
+        left: 120px;
+        animation: fishMoveRightSmall 10s ease-in-out infinite alternate;
+      }
+
+      .fish-svg.three {
+        top: 72px;
+        right: 42px;
+        transform: scaleX(-1);
+        animation: fishMoveLeft 14s ease-in-out infinite alternate;
+      }
+
+      .fish-svg.four {
+        top: 128px;
+        right: 122px;
+        transform: scaleX(-1);
+        animation: fishMoveLeftSmall 11s ease-in-out infinite alternate;
+        width: 24px;
+        opacity: 0.82;
+      }
+
+      .fish-svg.five {
+        top: 84px;
+        left: 202px;
+        width: 24px;
+        animation: fishMoveRightTiny 9s ease-in-out infinite alternate;
+        opacity: 0.82;
+      }
+
+      .fish-svg svg {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      @keyframes fishMoveRight {
+        0% {
+          transform: translateX(0);
+        }
+
+        100% {
+          transform: translateX(85px);
+        }
+      }
+
+      @keyframes fishMoveRightSmall {
+        0% {
+          transform: translateX(0);
+        }
+
+        100% {
+          transform: translateX(55px);
+        }
+      }
+
+      @keyframes fishMoveLeft {
+        0% {
+          transform: translateX(0) scaleX(-1);
+        }
+
+        100% {
+          transform: translateX(-85px) scaleX(-1);
+        }
+      }
+
+      @keyframes fishMoveLeftSmall {
+        0% {
+          transform: translateX(0) scaleX(-1);
+        }
+
+        100% {
+          transform: translateX(-55px) scaleX(-1);
+        }
+      }
+
+      @keyframes fishMoveRightTiny {
+        0% {
+          transform: translateX(0);
+        }
+
+        100% {
+          transform: translateX(40px);
+        }
+      }
+
+      .jelly-svg {
+        position: absolute;
+        width: 22px;
+        height: auto;
+        z-index: 4;
+        opacity: 0.65;
+        filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.38));
+      }
+
+      .jelly-svg.one {
+        top: 28px;
+        right: 34px;
+        animation: jellyDrift1 6.5s ease-in-out infinite;
+      }
+
+      .jelly-svg.two {
+        top: 54px;
+        left: 82px;
+        width: 16px;
+        opacity: 0.5;
+        animation: jellyDrift2 7.4s ease-in-out infinite;
+      }
+
+      .jelly-svg.three {
         top: 44px;
+        left: 230px;
+        width: 14px;
+        opacity: 0.38;
+        animation: jellyDrift3 8s ease-in-out infinite;
       }
-      .photo-frame {
-        width: 360px;
-        height: 360px;
+
+      @keyframes jellyDrift1 {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+
+        50% {
+          transform: translateY(-8px);
+        }
       }
-      .info-content strong { font-size: 19px; }
-      .text { font-size: 14px; }
-      .ocean { height: 210px; }
-      .wave-top { height: 144px; }
-    }
-  </style>
-</head>
-<body>
-  <div class="background-bubbles" id="backgroundBubbles"></div>
-  <div class="background-sparkles" id="backgroundSparkles"></div>
 
-  <div class="card">
-    <div class="wave-top">
-      <svg viewBox="0 0 420 150" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <linearGradient id="waveGradTop" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="#f7e8ef"/>
-            <stop offset="100%" stop-color="#efd9e5" stop-opacity="0.35"/>
-          </linearGradient>
-        </defs>
-        <path d="M0,60 C80,120 180,10 300,70 C360,100 420,40 420,40 L420,0 L0,0 Z" fill="url(#waveGradTop)" />
-        <path d="M0,80 C100,20 200,110 320,60 C380,40 420,70 420,70 L420,0 L0,0 Z" fill="rgba(255,255,255,0.4)" />
-        <circle cx="54" cy="28" r="12" fill="rgba(255,255,255,0.22)" />
-        <circle cx="360" cy="32" r="10" fill="rgba(255,255,255,0.2)" />
-        <circle cx="212" cy="24" r="6" fill="rgba(246,220,169,0.28)" />
-      </svg>
-      <div class="top-shine"></div>
-    </div>
+      @keyframes jellyDrift2 {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
 
-    <div class="content">
-      <p class="youre-invited">com carinho, convidamos você</p>
+        50% {
+          transform: translateY(-6px);
+        }
+      }
 
-      <div class="title">1º aninho</div>
-      <p class="subtitle">da nossa pequena sereia</p>
-      <div class="name">Eloá</div>
+      @keyframes jellyDrift3 {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
 
-      <div class="photo-wrap">
-        <div class="photo-glow"></div>
-        <div class="photo-frame">
-          <img src="eloa.png" alt="Foto da Eloá">
-        </div>
-      </div>
+        50% {
+          transform: translateY(-5px);
+        }
+      }
 
-      <p class="text">
-        o primeiro aninho da Eloá chegou,<br>
-        e nossa alegria será ainda maior com você aqui
-      </p>
+      @media (max-width: 480px) {
+        .card {
+          max-width: 100%;
+        }
 
-      <div class="divider"></div>
+        .content {
+          padding: 8px 18px 0;
+        }
 
-      <div class="info-list">
-        <div class="info-card">
-          <div class="info-icon">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <rect x="3" y="5" width="18" height="16" rx="3"></rect>
-              <line x1="3" y1="9" x2="21" y2="9"></line>
-              <line x1="8" y1="3" x2="8" y2="7"></line>
-              <line x1="16" y1="3" x2="16" y2="7"></line>
-            </svg>
-          </div>
-          <div class="info-content">
-            <strong>06 de maio de 2026</strong>
-            <span>quarta-feira</span>
-          </div>
-        </div>
+        .title {
+          font-size: 56px;
+        }
 
-        <div class="info-card">
-          <div class="info-icon">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <circle cx="12" cy="12" r="9"></circle>
-              <line x1="12" y1="12" x2="12" y2="7"></line>
-              <line x1="12" y1="12" x2="15.5" y2="14"></line>
-            </svg>
-          </div>
-          <div class="info-content">
-            <strong>às 19h</strong>
-            <span>esperamos você lá</span>
-          </div>
-        </div>
+        .subtitle {
+          font-size: 20px;
+        }
 
-        <div class="info-card">
-          <div class="info-icon">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11Z"></path>
-              <circle cx="12" cy="10" r="2.5"></circle>
-            </svg>
-          </div>
-          <div class="info-content">
-            <strong>Buffet Infantil Encanto do Céu Guará</strong>
-            <span>Chácara 12 Lote 21 - Guará, Brasília - DF, 71090-115</span>
-          </div>
-        </div>
-      </div>
+        .name {
+          font-size: 96px;
+        }
 
-      <div class="buttons">
-        <a
-          href="https://wa.me/556182237484?text=Ol%C3%A1%2C%20gostaria%20de%20confirmar%20presen%C3%A7a%20na%20festa%20da%20Elo%C3%A1."
-          target="_blank"
-          rel="noopener noreferrer"
-          class="btn primary"
+        .photo-glow {
+          width: 280px;
+          height: 280px;
+          top: 44px;
+        }
+
+        .photo-frame {
+          width: 360px;
+          height: 360px;
+        }
+
+        .info-content strong {
+          font-size: 19px;
+        }
+
+        .text {
+          font-size: 14px;
+        }
+
+        .ocean {
+          height: 210px;
+        }
+
+        .wave-top {
+          height: 144px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="background-bubbles" id="backgroundBubbles"></div>
+    <div class="background-sparkles" id="backgroundSparkles"></div>
+
+    <div class="card">
+      <div class="wave-top">
+        <svg
+          viewBox="0 0 420 150"
+          preserveAspectRatio="none"
+          xmlns="http://www.w3.org/2000/svg"
         >
-          confirmar presença
-        </a>
-
-        <a
-          href="https://www.google.com/maps/search/?api=1&query=Buffet%20Infantil%20Encanto%20do%20C%C3%A9u%20Guar%C3%A1%2C%20Ch%C3%A1cara%2012%20Lote%2021%20-%20Guar%C3%A1%2C%20Bras%C3%ADlia%20-%20DF%2C%2071090-115"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="btn secondary"
-        >
-          abrir no mapa
-        </a>
+          <defs>
+            <linearGradient id="waveGradTop" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#f7e8ef" />
+              <stop offset="100%" stop-color="#efd9e5" stop-opacity="0.35" />
+            </linearGradient>
+          </defs>
+          <path
+            d="M0,60 C80,120 180,10 300,70 C360,100 420,40 420,40 L420,0 L0,0 Z"
+            fill="url(#waveGradTop)"
+          />
+          <path
+            d="M0,80 C100,20 200,110 320,60 C380,40 420,70 420,70 L420,0 L0,0 Z"
+            fill="rgba(255,255,255,0.4)"
+          />
+          <circle cx="54" cy="28" r="12" fill="rgba(255,255,255,0.22)" />
+          <circle cx="360" cy="32" r="10" fill="rgba(255,255,255,0.2)" />
+          <circle cx="212" cy="24" r="6" fill="rgba(246,220,169,0.28)" />
+        </svg>
+        <div class="top-shine"></div>
       </div>
 
-      <div class="footer">
-        vai ser uma alegria ter você com a gente
+      <div class="content">
+        <div>
+          <p class="youre-invited">com carinho, convidamos você</p>
+
+          <div class="title">1º aninho</div>
+          <p class="subtitle">da nossa pequena sereia</p>
+          <div>
+            <p style="transform: translateX(-10px)" class="name">Eloá</p>
+          </div>
+        </div>
+        <div class="photo-wrap">
+          <div class="photo-glow"></div>
+          <div class="photo-frame">
+            <img src="eloa.png" style="object-fit: cover" alt="Foto da Eloá" />
+          </div>
+        </div>
+
+        <p class="text">
+          o primeiro aninho da Eloá chegou,<br />
+          e nossa alegria será ainda maior com você aqui
+        </p>
+
+        <div class="divider"></div>
+
+        <div class="info-list">
+          <div class="info-card">
+            <div class="info-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="3" y="5" width="18" height="16" rx="3"></rect>
+                <line x1="3" y1="9" x2="21" y2="9"></line>
+                <line x1="8" y1="3" x2="8" y2="7"></line>
+                <line x1="16" y1="3" x2="16" y2="7"></line>
+              </svg>
+            </div>
+            <div class="info-content">
+              <strong>06 de maio de 2026</strong>
+              <span>quarta-feira</span>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <div class="info-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="12" r="9"></circle>
+                <line x1="12" y1="12" x2="12" y2="7"></line>
+                <line x1="12" y1="12" x2="15.5" y2="14"></line>
+              </svg>
+            </div>
+            <div class="info-content">
+              <strong>às 19h</strong>
+              <span>esperamos você lá</span>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <div class="info-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11Z"
+                ></path>
+                <circle cx="12" cy="10" r="2.5"></circle>
+              </svg>
+            </div>
+            <div class="info-content">
+              <strong>Buffet Infantil Encanto do Céu Guará</strong>
+              <span>Chácara 12 Lote 21 - Guará, Brasília - DF, 71090-115</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="buttons">
+          <a
+            href="https://wa.me/556182237484?text=Ol%C3%A1%2C%20gostaria%20de%20confirmar%20presen%C3%A7a%20na%20festa%20da%20Elo%C3%A1."
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn primary"
+          >
+            confirmar presença
+          </a>
+
+          <a
+            href="https://www.google.com/maps/search/?api=1&query=Buffet%20Infantil%20Encanto%20do%20C%C3%A9u%20Guar%C3%A1%2C%20Ch%C3%A1cara%2012%20Lote%2021%20-%20Guar%C3%A1%2C%20Bras%C3%ADlia%20-%20DF%2C%2071090-115"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn secondary"
+          >
+            abrir no mapa
+          </a>
+        </div>
+
+        <div class="footer">vai ser uma alegria ter você com a gente</div>
+      </div>
+
+      <div class="ocean">
+        <div class="water-light"></div>
+        <div class="ocean-bubbles" id="oceanBubbles"></div>
+
+        <div class="ocean-decor">
+          <div class="seaweed one"></div>
+          <div class="seaweed two"></div>
+          <div class="seaweed three"></div>
+          <div class="seaweed four"></div>
+
+          <div class="fish-svg one">
+            <svg
+              viewBox="0 0 44 20"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
+              <path
+                d="M10 10 C14 4, 24 4, 30 10 C24 16, 14 16, 10 10 Z"
+                fill="#e8aebe"
+              />
+              <path d="M10 10 L2 4 L2 16 Z" fill="#e1a1b3" />
+              <circle cx="25.5" cy="9" r="1.2" fill="#6d5665" />
+            </svg>
+          </div>
+
+          <div class="fish-svg two">
+            <svg
+              viewBox="0 0 44 20"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
+              <path
+                d="M10 10 C14 4, 24 4, 30 10 C24 16, 14 16, 10 10 Z"
+                fill="#f2d291"
+              />
+              <path d="M10 10 L2 4 L2 16 Z" fill="#eccb82" />
+              <circle cx="25.5" cy="9" r="1.2" fill="#6d5665" />
+            </svg>
+          </div>
+
+          <div class="fish-svg three">
+            <svg
+              viewBox="0 0 44 20"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
+              <path
+                d="M10 10 C14 4, 24 4, 30 10 C24 16, 14 16, 10 10 Z"
+                fill="#cfa8df"
+              />
+              <path d="M10 10 L2 4 L2 16 Z" fill="#bf95d3" />
+              <circle cx="25.5" cy="9" r="1.2" fill="#6d5665" />
+            </svg>
+          </div>
+
+          <div class="fish-svg four">
+            <svg
+              viewBox="0 0 44 20"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
+              <path
+                d="M10 10 C14 4, 24 4, 30 10 C24 16, 14 16, 10 10 Z"
+                fill="#efbfd0"
+              />
+              <path d="M10 10 L2 4 L2 16 Z" fill="#e9adc2" />
+              <circle cx="25.5" cy="9" r="1.2" fill="#6d5665" />
+            </svg>
+          </div>
+
+          <div class="fish-svg five">
+            <svg
+              viewBox="0 0 44 20"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
+              <path
+                d="M10 10 C14 4, 24 4, 30 10 C24 16, 14 16, 10 10 Z"
+                fill="#dcbadf"
+              />
+              <path d="M10 10 L2 4 L2 16 Z" fill="#cda7d4" />
+              <circle cx="25.5" cy="9" r="1.2" fill="#6d5665" />
+            </svg>
+          </div>
+
+          <div class="jelly-svg one">
+            <svg
+              viewBox="0 0 28 40"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
+              <path
+                d="M14 6 C7 6, 5 12, 14 16 C23 12, 21 6, 14 6 Z"
+                fill="#efd0df"
+              />
+              <path
+                d="M9 16 C9 22, 8 27, 7 33"
+                stroke="#efd0df"
+                stroke-width="1.6"
+                stroke-linecap="round"
+              />
+              <path
+                d="M14 16 C14 22, 14 27, 14 34"
+                stroke="#efd0df"
+                stroke-width="1.6"
+                stroke-linecap="round"
+              />
+              <path
+                d="M19 16 C19 22, 20 27, 21 33"
+                stroke="#efd0df"
+                stroke-width="1.6"
+                stroke-linecap="round"
+              />
+            </svg>
+          </div>
+
+          <div class="jelly-svg two">
+            <svg
+              viewBox="0 0 28 40"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
+              <path
+                d="M14 6 C7 6, 5 12, 14 16 C23 12, 21 6, 14 6 Z"
+                fill="#efd0df"
+              />
+              <path
+                d="M9 16 C9 22, 8 27, 7 33"
+                stroke="#efd0df"
+                stroke-width="1.6"
+                stroke-linecap="round"
+              />
+              <path
+                d="M14 16 C14 22, 14 27, 14 34"
+                stroke="#efd0df"
+                stroke-width="1.6"
+                stroke-linecap="round"
+              />
+              <path
+                d="M19 16 C19 22, 20 27, 21 33"
+                stroke="#efd0df"
+                stroke-width="1.6"
+                stroke-linecap="round"
+              />
+            </svg>
+          </div>
+
+          <div class="jelly-svg three">
+            <svg
+              viewBox="0 0 28 40"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
+              <path
+                d="M14 6 C7 6, 5 12, 14 16 C23 12, 21 6, 14 6 Z"
+                fill="#efd0df"
+              />
+              <path
+                d="M9 16 C9 22, 8 27, 7 33"
+                stroke="#efd0df"
+                stroke-width="1.6"
+                stroke-linecap="round"
+              />
+              <path
+                d="M14 16 C14 22, 14 27, 14 34"
+                stroke="#efd0df"
+                stroke-width="1.6"
+                stroke-linecap="round"
+              />
+              <path
+                d="M19 16 C19 22, 20 27, 21 33"
+                stroke="#efd0df"
+                stroke-width="1.6"
+                stroke-linecap="round"
+              />
+            </svg>
+          </div>
+
+          <div class="star-svg">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+              <polygon
+                points="50,5 61,35 95,35 67,57 78,90 50,70 22,90 33,57 5,35 39,35"
+                fill="#f6dca9"
+              />
+            </svg>
+          </div>
+
+          <div class="shell-svg main"></div>
+          <div class="shell-svg left"></div>
+          <div class="shell-svg mid"></div>
+        </div>
+
+        <div class="wave wave-1"></div>
+        <div class="wave wave-2"></div>
+        <div class="wave wave-3"></div>
       </div>
     </div>
 
-    <div class="ocean">
-      <div class="water-light"></div>
-      <div class="ocean-bubbles" id="oceanBubbles"></div>
+    <script>
+      const backgroundBubbles = document.getElementById("backgroundBubbles");
+      for (let i = 0; i < 18; i++) {
+        const bubble = document.createElement("div");
 
-      <div class="ocean-decor">
-        <div class="seaweed one"></div>
-        <div class="seaweed two"></div>
-        <div class="seaweed three"></div>
-        <div class="seaweed four"></div>
+        bubble.className = "bubble";
+        const size = Math.random() * 14 + 6;
+        bubble.style.width = `${size}px`;
+        bubble.style.height = `${size}px`;
+        bubble.style.left = `${Math.random() * 100}%`;
+        bubble.style.animationDuration = `${Math.random() * 7 + 6}s`;
+        bubble.style.animationDelay = `${Math.random() * 8}s`;
+        bubble.style.opacity = (Math.random() * 0.35 + 0.2).toFixed(2);
+        backgroundBubbles.appendChild(bubble);
+      }
 
-        <div class="fish-svg one">
-          <svg viewBox="0 0 44 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="M10 10 C14 4, 24 4, 30 10 C24 16, 14 16, 10 10 Z" fill="#e8aebe"/>
-            <path d="M10 10 L2 4 L2 16 Z" fill="#e1a1b3"/>
-            <circle cx="25.5" cy="9" r="1.2" fill="#6d5665"/>
-          </svg>
-        </div>
+      const backgroundSparkles = document.getElementById("backgroundSparkles");
+      for (let i = 0; i < 12; i++) {
+        const sparkle = document.createElement("div");
+        sparkle.className = "sparkle";
+        sparkle.style.left = `${Math.random() * 100}%`;
+        sparkle.style.top = `${Math.random() * 100}%`;
+        sparkle.style.animationDelay = `${Math.random() * 4}s`;
+        backgroundSparkles.appendChild(sparkle);
+      }
 
-        <div class="fish-svg two">
-          <svg viewBox="0 0 44 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="M10 10 C14 4, 24 4, 30 10 C24 16, 14 16, 10 10 Z" fill="#f2d291"/>
-            <path d="M10 10 L2 4 L2 16 Z" fill="#eccb82"/>
-            <circle cx="25.5" cy="9" r="1.2" fill="#6d5665"/>
-          </svg>
-        </div>
+      const oceanBubbles = document.getElementById("oceanBubbles");
+      for (let i = 0; i < 16; i++) {
+        const bubble = document.createElement("div");
+        bubble.className = "ocean-bubble";
+        const size = Math.random() * 10 + 6;
+        bubble.style.width = `${size}px`;
+        bubble.style.height = `${size}px`;
+        bubble.style.left = `${Math.random() * 100}%`;
+        bubble.style.animationDuration = `${Math.random() * 4 + 4}s`;
+        bubble.style.animationDelay = `${Math.random() * 5}s`;
+        oceanBubbles.appendChild(bubble);
+      }
 
-        <div class="fish-svg three">
-          <svg viewBox="0 0 44 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="M10 10 C14 4, 24 4, 30 10 C24 16, 14 16, 10 10 Z" fill="#cfa8df"/>
-            <path d="M10 10 L2 4 L2 16 Z" fill="#bf95d3"/>
-            <circle cx="25.5" cy="9" r="1.2" fill="#6d5665"/>
-          </svg>
-        </div>
+      window.addEventListener("scroll", () => {
+        const scrollY = window.scrollY;
+        const bubbles = document.querySelectorAll(".bubble");
 
-        <div class="fish-svg four">
-          <svg viewBox="0 0 44 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="M10 10 C14 4, 24 4, 30 10 C24 16, 14 16, 10 10 Z" fill="#efbfd0"/>
-            <path d="M10 10 L2 4 L2 16 Z" fill="#e9adc2"/>
-            <circle cx="25.5" cy="9" r="1.2" fill="#6d5665"/>
-          </svg>
-        </div>
-
-        <div class="fish-svg five">
-          <svg viewBox="0 0 44 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="M10 10 C14 4, 24 4, 30 10 C24 16, 14 16, 10 10 Z" fill="#dcbadf"/>
-            <path d="M10 10 L2 4 L2 16 Z" fill="#cda7d4"/>
-            <circle cx="25.5" cy="9" r="1.2" fill="#6d5665"/>
-          </svg>
-        </div>
-
-        <div class="jelly-svg one">
-          <svg viewBox="0 0 28 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="M14 6 C7 6, 5 12, 14 16 C23 12, 21 6, 14 6 Z" fill="#efd0df"/>
-            <path d="M9 16 C9 22, 8 27, 7 33" stroke="#efd0df" stroke-width="1.6" stroke-linecap="round"/>
-            <path d="M14 16 C14 22, 14 27, 14 34" stroke="#efd0df" stroke-width="1.6" stroke-linecap="round"/>
-            <path d="M19 16 C19 22, 20 27, 21 33" stroke="#efd0df" stroke-width="1.6" stroke-linecap="round"/>
-          </svg>
-        </div>
-
-        <div class="jelly-svg two">
-          <svg viewBox="0 0 28 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="M14 6 C7 6, 5 12, 14 16 C23 12, 21 6, 14 6 Z" fill="#efd0df"/>
-            <path d="M9 16 C9 22, 8 27, 7 33" stroke="#efd0df" stroke-width="1.6" stroke-linecap="round"/>
-            <path d="M14 16 C14 22, 14 27, 14 34" stroke="#efd0df" stroke-width="1.6" stroke-linecap="round"/>
-            <path d="M19 16 C19 22, 20 27, 21 33" stroke="#efd0df" stroke-width="1.6" stroke-linecap="round"/>
-          </svg>
-        </div>
-
-        <div class="jelly-svg three">
-          <svg viewBox="0 0 28 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="M14 6 C7 6, 5 12, 14 16 C23 12, 21 6, 14 6 Z" fill="#efd0df"/>
-            <path d="M9 16 C9 22, 8 27, 7 33" stroke="#efd0df" stroke-width="1.6" stroke-linecap="round"/>
-            <path d="M14 16 C14 22, 14 27, 14 34" stroke="#efd0df" stroke-width="1.6" stroke-linecap="round"/>
-            <path d="M19 16 C19 22, 20 27, 21 33" stroke="#efd0df" stroke-width="1.6" stroke-linecap="round"/>
-          </svg>
-        </div>
-
-        <div class="star-svg">
-          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-            <polygon points="50,5 61,35 95,35 67,57 78,90 50,70 22,90 33,57 5,35 39,35" fill="#f6dca9"/>
-          </svg>
-        </div>
-
-        <div class="shell-svg main"></div>
-        <div class="shell-svg left"></div>
-        <div class="shell-svg mid"></div>
-      </div>
-
-      <div class="wave wave-1"></div>
-      <div class="wave wave-2"></div>
-      <div class="wave wave-3"></div>
-    </div>
-  </div>
-
-  <script>
-    const backgroundBubbles = document.getElementById('backgroundBubbles');
-    for (let i = 0; i < 18; i++) {
-      const bubble = document.createElement('div');
-      bubble.className = 'bubble';
-      const size = Math.random() * 14 + 6;
-      bubble.style.width = `${size}px`;
-      bubble.style.height = `${size}px`;
-      bubble.style.left = `${Math.random() * 100}%`;
-      bubble.style.animationDuration = `${Math.random() * 7 + 6}s`;
-      bubble.style.animationDelay = `${Math.random() * 8}s`;
-      bubble.style.opacity = (Math.random() * 0.35 + 0.2).toFixed(2);
-      backgroundBubbles.appendChild(bubble);
-    }
-
-    const backgroundSparkles = document.getElementById('backgroundSparkles');
-    for (let i = 0; i < 12; i++) {
-      const sparkle = document.createElement('div');
-      sparkle.className = 'sparkle';
-      sparkle.style.left = `${Math.random() * 100}%`;
-      sparkle.style.top = `${Math.random() * 100}%`;
-      sparkle.style.animationDelay = `${Math.random() * 4}s`;
-      backgroundSparkles.appendChild(sparkle);
-    }
-
-    const oceanBubbles = document.getElementById('oceanBubbles');
-    for (let i = 0; i < 16; i++) {
-      const bubble = document.createElement('div');
-      bubble.className = 'ocean-bubble';
-      const size = Math.random() * 10 + 6;
-      bubble.style.width = `${size}px`;
-      bubble.style.height = `${size}px`;
-      bubble.style.left = `${Math.random() * 100}%`;
-      bubble.style.animationDuration = `${Math.random() * 4 + 4}s`;
-      bubble.style.animationDelay = `${Math.random() * 5}s`;
-      oceanBubbles.appendChild(bubble);
-    }
-
-    window.addEventListener('scroll', () => {
-      const scrollY = window.scrollY;
-      const bubbles = document.querySelectorAll('.bubble');
-
-      bubbles.forEach((bubble, index) => {
-        const speed = (index % 5 + 1) * 0.25;
-        bubble.style.transform = `translateY(-${scrollY * speed}px)`;
+        bubbles.forEach((bubble, index) => {
+          const speed = ((index % 5) + 1) * 0.25;
+          bubble.style.transform = `translateY(-${scrollY * speed}px)`;
+        });
       });
-    });
-  </script>
-</body>
+    </script>
+  </body>
 </html>
