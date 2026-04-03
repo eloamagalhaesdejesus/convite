@@ -48,10 +48,10 @@
 
       --shell: #f0c9d7;
       --star: #f3d98e;
-      --jelly: #f4d6e3;
-      --fish-1: #ebb6c8;
-      --fish-2: #f4d9a0;
-      --fish-3: #d7b8e7;
+      --jelly: #efd0df;
+      --fish-1: #e8aebe;
+      --fish-2: #f2d291;
+      --fish-3: #cfa8df;
     }
 
     html {
@@ -196,22 +196,22 @@
       letter-spacing: 2px;
       text-transform: uppercase;
       color: var(--soft);
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
 
     .title {
       font-family: 'Great Vibes', cursive;
       font-size: 64px;
-      line-height: 0.92;
+      line-height: 0.9;
       color: var(--soft-2);
-      margin-bottom: 2px;
+      margin-bottom: -2px;
     }
 
     .name {
       font-family: 'Great Vibes', cursive;
       font-size: 102px;
-      line-height: 0.9;
-      margin-bottom: 6px;
+      line-height: 0.86;
+      margin-bottom: -4px;
       background: linear-gradient(
         90deg,
         var(--gold) 0%,
@@ -233,10 +233,10 @@
     .subtitle {
       font-family: 'Cormorant Garamond', serif;
       font-size: 24px;
-      line-height: 1.1;
+      line-height: 1.05;
       font-style: italic;
       color: var(--soft);
-      margin-bottom: 6px;
+      margin-bottom: -6px;
     }
 
     @keyframes shimmerName {
@@ -248,7 +248,7 @@
       position: relative;
       display: flex;
       justify-content: center;
-      margin: 4px 0 8px;
+      margin: -6px 0 8px;
     }
 
     .photo-glow {
@@ -616,122 +616,87 @@
       50% { transform: translateY(-4px); }
     }
 
-    .fish {
+    /* PEIXES REFINADOS */
+    .fish-svg {
       position: absolute;
-      width: 14px;
-      height: 8px;
-      border-radius: 50%;
+      width: 32px;
+      height: auto;
       z-index: 4;
-      filter: drop-shadow(0 0 8px rgba(255,255,255,0.35));
+      opacity: 0.95;
+      filter: drop-shadow(0 0 6px rgba(255,255,255,0.32));
     }
 
-    .fish::before {
-      content: '';
-      position: absolute;
-      right: 2px;
-      top: 2px;
-      width: 2px;
-      height: 2px;
-      border-radius: 50%;
-      background: #6d5665;
+    .fish-svg.one {
+      top: 52px;
+      left: 24px;
+      animation: swimA 12s ease-in-out infinite alternate;
     }
 
-    .fish::after {
-      content: '';
-      position: absolute;
-      left: -5px;
-      top: 2px;
-      border-right: 6px solid currentColor;
-      border-top: 3px solid transparent;
-      border-bottom: 3px solid transparent;
+    .fish-svg.two {
+      top: 92px;
+      left: 120px;
+      animation: swimB 13s ease-in-out infinite alternate;
     }
 
-    .fish.fish1 {
-      top: 42px;
-      left: 20px;
-      color: var(--fish-1);
-      background: var(--fish-1);
-      animation: swimLeftRight 10s ease-in-out infinite alternate;
+    .fish-svg.three {
+      top: 64px;
+      right: 40px;
+      animation: swimC 14s ease-in-out infinite alternate;
     }
 
-    .fish.fish2 {
-      top: 76px;
-      left: 140px;
-      color: var(--fish-2);
-      background: var(--fish-2);
-      animation: swimRightLeft 12s ease-in-out infinite alternate;
+    .fish-svg svg {
+      display: block;
+      width: 100%;
+      height: auto;
     }
 
-    .fish.fish3 {
-      top: 58px;
-      left: 250px;
-      color: var(--fish-3);
-      background: var(--fish-3);
-      animation: swimLeftRight 11s ease-in-out infinite alternate;
-    }
-
-    .fish.fish4 {
-      top: 102px;
-      left: 70px;
-      color: var(--fish-1);
-      background: var(--fish-1);
-      transform: scale(0.9);
-      animation: swimRightLeft 14s ease-in-out infinite alternate;
-    }
-
-    @keyframes swimLeftRight {
+    @keyframes swimA {
       0% { transform: translateX(0) scaleX(1); }
-      100% { transform: translateX(120px) scaleX(1); }
+      100% { transform: translateX(90px) scaleX(1); }
     }
 
-    @keyframes swimRightLeft {
+    @keyframes swimB {
       0% { transform: translateX(0) scaleX(-1); }
-      100% { transform: translateX(-120px) scaleX(-1); }
+      100% { transform: translateX(-80px) scaleX(-1); }
     }
 
-    .jelly {
+    @keyframes swimC {
+      0% { transform: translateX(0) scaleX(-1); }
+      100% { transform: translateX(-95px) scaleX(-1); }
+    }
+
+    /* ÁGUAS-VIVAS REFINADAS */
+    .jelly-svg {
       position: absolute;
-      width: 20px;
-      height: 20px;
-      background: var(--jelly);
-      border-radius: 50% 50% 44% 44%;
-      opacity: 0.78;
+      width: 22px;
+      height: auto;
       z-index: 4;
-      filter: drop-shadow(0 0 8px rgba(255,255,255,0.45));
-      animation: jellyFloat 5.5s ease-in-out infinite;
+      opacity: 0.65;
+      filter: drop-shadow(0 0 8px rgba(255,255,255,0.38));
     }
 
-    .jelly::before,
-    .jelly::after {
-      content: '';
-      position: absolute;
-      top: 18px;
-      width: 2px;
-      height: 12px;
-      background: var(--jelly);
-      border-radius: 999px;
+    .jelly-svg.one {
+      top: 26px;
+      right: 32px;
+      animation: jellyDrift1 6.5s ease-in-out infinite;
     }
 
-    .jelly::before { left: 6px; }
-    .jelly::after { left: 12px; }
-
-    .jelly.jelly1 {
-      top: 22px;
-      right: 30px;
-    }
-
-    .jelly.jelly2 {
-      top: 40px;
+    .jelly-svg.two {
+      top: 50px;
       left: 78px;
-      width: 15px;
-      height: 15px;
-      opacity: 0.56;
-      animation-duration: 6.6s;
+      width: 16px;
+      opacity: 0.5;
+      animation: jellyDrift2 7.4s ease-in-out infinite;
     }
 
-    @keyframes jellyFloat {
+    @keyframes jellyDrift1 {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-8px); }
+    }
+
+    @keyframes jellyDrift2 {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
     }
 
     @media (max-width: 480px) {
@@ -878,13 +843,47 @@
         <div class="seaweed three"></div>
         <div class="seaweed four"></div>
 
-        <div class="fish fish1"></div>
-        <div class="fish fish2"></div>
-        <div class="fish fish3"></div>
-        <div class="fish fish4"></div>
+        <div class="fish-svg one">
+          <svg viewBox="0 0 44 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M10 10 C14 4, 24 4, 30 10 C24 16, 14 16, 10 10 Z" fill="#e8aebe"/>
+            <path d="M10 10 L2 4 L2 16 Z" fill="#e1a1b3"/>
+            <circle cx="25.5" cy="9" r="1.2" fill="#6d5665"/>
+          </svg>
+        </div>
 
-        <div class="jelly jelly1"></div>
-        <div class="jelly jelly2"></div>
+        <div class="fish-svg two">
+          <svg viewBox="0 0 44 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M10 10 C14 4, 24 4, 30 10 C24 16, 14 16, 10 10 Z" fill="#f2d291"/>
+            <path d="M10 10 L2 4 L2 16 Z" fill="#eccb82"/>
+            <circle cx="25.5" cy="9" r="1.2" fill="#6d5665"/>
+          </svg>
+        </div>
+
+        <div class="fish-svg three">
+          <svg viewBox="0 0 44 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M10 10 C14 4, 24 4, 30 10 C24 16, 14 16, 10 10 Z" fill="#cfa8df"/>
+            <path d="M10 10 L2 4 L2 16 Z" fill="#bf95d3"/>
+            <circle cx="25.5" cy="9" r="1.2" fill="#6d5665"/>
+          </svg>
+        </div>
+
+        <div class="jelly-svg one">
+          <svg viewBox="0 0 28 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M14 6 C7 6, 5 12, 14 16 C23 12, 21 6, 14 6 Z" fill="#efd0df"/>
+            <path d="M9 16 C9 22, 8 27, 7 33" stroke="#efd0df" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M14 16 C14 22, 14 27, 14 34" stroke="#efd0df" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M19 16 C19 22, 20 27, 21 33" stroke="#efd0df" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+        </div>
+
+        <div class="jelly-svg two">
+          <svg viewBox="0 0 28 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M14 6 C7 6, 5 12, 14 16 C23 12, 21 6, 14 6 Z" fill="#efd0df"/>
+            <path d="M9 16 C9 22, 8 27, 7 33" stroke="#efd0df" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M14 16 C14 22, 14 27, 14 34" stroke="#efd0df" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M19 16 C19 22, 20 27, 21 33" stroke="#efd0df" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+        </div>
 
         <div class="star-svg">
           <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
