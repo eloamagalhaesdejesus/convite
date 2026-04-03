@@ -1,676 +1,191 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Aniversário da Eloá 🐚</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400;1,500&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+<title>1º aninho da Eloá</title>
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<meta name="theme-color" content="#f6dde8" />
 
-    :root {
-      --deep: #cfaec3;
-      --ocean: #e0bfd1;
-      --teal: #eedbe5;
-      --aqua: #f6dde8;
-      --foam: #fff8fb;
-      --pearl: #fffafd;
-      --coral: #f3d3df;
-      --gold: #f6dca9;
-      --sand: #f9eef4;
-      --text-dark: #6e4d5f;
-      --text-soft: #9a7c8f;
-      --white-line: rgba(255, 255, 255, 0.78);
-      --shadow: rgba(182, 145, 163, 0.18);
-      --shadow-strong: rgba(182, 145, 163, 0.28);
-    }
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 
-    body {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 24px;
-      overflow-x: hidden;
-      font-family: 'DM Sans', sans-serif;
-      background:
-        radial-gradient(circle at top, #fff7fb 0%, #f6eaf1 30%, #efdfe9 60%, #e6d1de 100%);
-      color: var(--text-dark);
-      position: relative;
-    }
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
 
-    .bubbles,
-    .sparkles {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 0;
-      overflow: hidden;
-    }
+:root{
+--bg:#f6dde8;
+--card:#fffafd;
+--text:#6e4d5f;
+--soft:#9a7c8f;
+--gold:#f6dca9;
+}
 
-    .bubble {
-      position: absolute;
-      bottom: -120px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.2);
-      border: 1px solid rgba(255, 255, 255, 0.38);
-      backdrop-filter: blur(2px);
-      animation: rise linear infinite;
-    }
+body{
+font-family:'DM Sans',sans-serif;
+background:linear-gradient(to bottom,#fff7fb,#f6dde8);
+display:flex;
+justify-content:center;
+padding:20px;
+color:var(--text);
+}
 
-    .sparkle {
-      position: absolute;
-      width: 12px;
-      height: 12px;
-      opacity: 0.5;
-      animation: twinkle 3.6s ease-in-out infinite;
-    }
+.card{
+width:100%;
+max-width:420px;
+background:var(--card);
+border-radius:24px;
+padding:24px;
+box-shadow:0 10px 40px rgba(0,0,0,0.08);
+text-align:center;
+}
 
-    .sparkle::before,
-    .sparkle::after {
-      content: "";
-      position: absolute;
-      background: rgba(255, 255, 255, 0.95);
-      border-radius: 99px;
-    }
+.youre-invited{
+font-size:12px;
+letter-spacing:2px;
+color:var(--soft);
+margin-bottom:10px;
+}
 
-    .sparkle::before {
-      width: 2px;
-      height: 12px;
-      left: 5px;
-      top: 0;
-    }
+.title{
+font-family:'Great Vibes',cursive;
+font-size:60px;
+color:#c695af;
+}
 
-    .sparkle::after {
-      width: 12px;
-      height: 2px;
-      left: 0;
-      top: 5px;
-    }
+.subtitle{
+font-family:'Cormorant Garamond',serif;
+font-style:italic;
+margin-top:10px;
+}
 
-    .card {
-      position: relative;
-      z-index: 1;
-      width: min(440px, 100%);
-      border-radius: 30px;
-      overflow: hidden;
-      background: linear-gradient(180deg, rgba(255, 250, 253, 0.97), rgba(246, 221, 232, 0.95));
-      border: 1px solid var(--white-line);
-      box-shadow:
-        0 20px 60px var(--shadow),
-        0 8px 22px rgba(255, 255, 255, 0.35) inset;
-      backdrop-filter: blur(8px);
-      animation: fadeUp 0.9s ease-out, glow 5s ease-in-out infinite;
-    }
+.name{
+font-family:'Great Vibes',cursive;
+font-size:70px;
+color:var(--gold);
+margin:10px 0;
+}
 
-    .card::before {
-      content: "";
-      position: absolute;
-      inset: 14px;
-      border-radius: 22px;
-      border: 1px solid rgba(255, 255, 255, 0.65);
-      pointer-events: none;
-    }
+.text{
+font-size:15px;
+line-height:1.5;
+margin:20px 0;
+}
 
-    .wave-top {
-      width: 100%;
-      height: 96px;
-      overflow: hidden;
-    }
+.info{
+margin:15px 0;
+}
 
-    .wave-top svg {
-      width: 100%;
-      height: 100%;
-      display: block;
-    }
+.info strong{
+display:block;
+font-size:18px;
+}
 
-    .header {
-      text-align: center;
-      padding: 6px 28px 8px;
-      position: relative;
-    }
+.buttons{
+margin-top:20px;
+display:flex;
+flex-direction:column;
+gap:10px;
+}
 
-    .youre-invited {
-      font-size: 11px;
-      letter-spacing: 3.5px;
-      text-transform: uppercase;
-      color: var(--text-soft);
-      margin-bottom: 10px;
-      font-weight: 500;
-    }
+.btn{
+padding:14px;
+border-radius:999px;
+text-decoration:none;
+font-weight:600;
+font-size:14px;
+}
 
-    .birthday-script {
-      font-family: 'Great Vibes', cursive;
-      font-size: 68px;
-      line-height: 0.95;
-      color: #c695af;
-      text-shadow: 0 0 18px rgba(255, 255, 255, 0.55);
-      animation: floatSoft 4.8s ease-in-out infinite;
-    }
+.primary{
+background:#f3d59e;
+color:#6b4e2e;
+}
 
-    .party-script {
-      font-family: 'Great Vibes', cursive;
-      font-size: 52px;
-      line-height: 1;
-      color: #ddb7c8;
-      margin-top: -2px;
-      text-shadow: 0 0 16px rgba(255, 255, 255, 0.5);
-      animation: floatSoft 5.4s ease-in-out infinite 0.4s;
-    }
+.secondary{
+border:1px solid #e0bfd1;
+color:#9a7c8f;
+}
 
-    .name-section {
-      text-align: center;
-      padding: 16px 28px 0;
-    }
+.footer{
+margin-top:20px;
+font-size:14px;
+color:var(--soft);
+}
 
-    .da {
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-size: 18px;
-      color: var(--text-soft);
-      letter-spacing: 1.5px;
-      margin-bottom: 2px;
-    }
+/* oceano no final */
+.ocean{
+margin-top:20px;
+height:120px;
+background:linear-gradient(to top, rgba(230,200,215,0.7), transparent);
+border-radius:16px;
+position:relative;
+overflow:hidden;
+}
 
-    .name {
-      font-family: 'Great Vibes', cursive;
-      font-size: 82px;
-      line-height: 0.95;
-      color: var(--gold);
-      text-shadow: 0 2px 10px rgba(199, 173, 112, 0.22);
-      animation: floatSoft 5s ease-in-out infinite 0.2s;
-    }
+.ocean::after{
+content:'';
+position:absolute;
+bottom:0;
+width:100%;
+height:80px;
+background:radial-gradient(circle at 20% 50%,rgba(255,255,255,0.3),transparent),
+radial-gradient(circle at 80% 60%,rgba(255,255,255,0.2),transparent);
+}
 
-    .age-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      margin-top: 10px;
-      padding: 7px 18px;
-      border-radius: 999px;
-      background: rgba(255, 250, 253, 0.72);
-      border: 1px solid rgba(246, 220, 169, 0.58);
-      box-shadow: 0 6px 20px rgba(246, 220, 169, 0.12);
-    }
-
-    .age-text {
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-size: 16px;
-      color: #b89157;
-      letter-spacing: 0.5px;
-    }
-
-    .ocean-scene {
-      margin: 22px 28px 18px;
-      height: 150px;
-      position: relative;
-      overflow: hidden;
-      border-radius: 22px;
-      background: linear-gradient(180deg, rgba(250, 242, 247, 0.95) 0%, rgba(241, 223, 233, 0.98) 100%);
-      border: 1px solid rgba(255, 255, 255, 0.76);
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55);
-    }
-
-    .ocean-scene svg {
-      width: 100%;
-      height: 100%;
-      display: block;
-    }
-
-    .tagline {
-      text-align: center;
-      padding: 0 30px 20px;
-    }
-
-    .tagline-text {
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-size: 21px;
-      line-height: 1.45;
-      color: #8f6c80;
-    }
-
-    .divider {
-      width: calc(100% - 56px);
-      height: 1px;
-      margin: 0 auto;
-      background: linear-gradient(
-        to right,
-        transparent,
-        rgba(212, 183, 199, 0.9),
-        transparent
-      );
-    }
-
-    .info-section {
-      padding: 22px 28px 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
-    }
-
-    .info-row {
-      display: flex;
-      align-items: flex-start;
-      gap: 14px;
-    }
-
-    .info-icon {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.62);
-      border: 1px solid rgba(224, 191, 209, 0.72);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 17px;
-      flex-shrink: 0;
-      box-shadow: 0 8px 18px rgba(214, 187, 201, 0.12);
-    }
-
-    .info-label {
-      font-size: 10px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: var(--text-soft);
-      margin-bottom: 4px;
-      font-weight: 700;
-    }
-
-    .info-main {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 23px;
-      line-height: 1.15;
-      color: var(--text-dark);
-    }
-
-    .info-sub {
-      margin-top: 3px;
-      font-size: 13px;
-      line-height: 1.45;
-      color: var(--text-soft);
-    }
-
-    .info-sub a {
-      color: #b7859e;
-      text-decoration: none;
-      border-bottom: 1px solid rgba(183, 133, 158, 0.3);
-      transition: 0.25s ease;
-    }
-
-    .info-sub a:hover {
-      opacity: 0.75;
-    }
-
-    .buttons {
-      padding: 4px 28px 28px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .btn {
-      display: block;
-      text-align: center;
-      padding: 15px 20px;
-      border-radius: 999px;
-      text-decoration: none;
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      transition: transform 0.28s ease, box-shadow 0.28s ease, background 0.28s ease;
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, #f8e7ba, #f3d59e);
-      color: #7f5d31;
-      box-shadow: 0 10px 22px rgba(243, 213, 158, 0.22);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 16px 28px rgba(243, 213, 158, 0.3);
-    }
-
-    .btn-secondary {
-      background: rgba(255, 255, 255, 0.45);
-      border: 1px solid rgba(224, 191, 209, 0.85);
-      color: #b7859e;
-    }
-
-    .btn-secondary:hover {
-      transform: translateY(-1px);
-      background: rgba(255, 255, 255, 0.65);
-    }
-
-    .footer {
-      text-align: center;
-      padding: 0 28px 28px;
-    }
-
-    .footer-text {
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-size: 16px;
-      color: var(--text-soft);
-    }
-
-    @keyframes rise {
-      0% {
-        transform: translateY(110vh) scale(0.8);
-        opacity: 0;
-      }
-      12% {
-        opacity: 0.8;
-      }
-      100% {
-        transform: translateY(-15vh) scale(1.08);
-        opacity: 0;
-      }
-    }
-
-    @keyframes twinkle {
-      0%, 100% {
-        opacity: 0.18;
-        transform: scale(0.8);
-      }
-      50% {
-        opacity: 0.85;
-        transform: scale(1.1);
-      }
-    }
-
-    @keyframes floatSoft {
-      0%, 100% {
-        transform: translateY(0px);
-      }
-      50% {
-        transform: translateY(-7px);
-      }
-    }
-
-    @keyframes glow {
-      0%, 100% {
-        box-shadow:
-          0 20px 60px var(--shadow),
-          0 8px 22px rgba(255, 255, 255, 0.35) inset;
-      }
-      50% {
-        box-shadow:
-          0 24px 72px var(--shadow-strong),
-          0 8px 24px rgba(255, 255, 255, 0.42) inset;
-      }
-    }
-
-    @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(16px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @media (max-width: 480px) {
-      body {
-        padding: 14px;
-      }
-
-      .card {
-        border-radius: 24px;
-      }
-
-      .card::before {
-        inset: 10px;
-        border-radius: 18px;
-      }
-
-      .birthday-script {
-        font-size: 58px;
-      }
-
-      .party-script {
-        font-size: 44px;
-      }
-
-      .name {
-        font-size: 72px;
-      }
-
-      .tagline-text {
-        font-size: 19px;
-      }
-
-      .info-main {
-        font-size: 21px;
-      }
-
-      .ocean-scene {
-        height: 138px;
-        margin: 20px 22px 18px;
-      }
-
-      .header,
-      .name-section,
-      .tagline,
-      .info-section,
-      .buttons,
-      .footer {
-        padding-left: 22px;
-        padding-right: 22px;
-      }
-
-      .divider {
-        width: calc(100% - 44px);
-      }
-    }
-  </style>
+</style>
 </head>
+
 <body>
-  <div class="bubbles" id="bubbles"></div>
-  <div class="sparkles" id="sparkles"></div>
 
-  <div class="card">
-    <div class="wave-top">
-      <svg viewBox="0 0 420 96" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <linearGradient id="waveGradTop" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="#f7e8ef"/>
-            <stop offset="100%" stop-color="#efd9e5" stop-opacity="0.3"/>
-          </linearGradient>
-        </defs>
-        <path d="M0,28 C60,56 130,10 210,34 C290,58 350,18 420,40 L420,0 L0,0 Z" fill="url(#waveGradTop)" />
-        <path d="M0,48 C80,18 150,60 230,38 C310,16 370,50 420,28 L420,0 L0,0 Z" fill="rgba(255,255,255,0.35)" />
-        <circle cx="54" cy="18" r="12" fill="rgba(255,255,255,0.22)" />
-        <circle cx="360" cy="22" r="10" fill="rgba(255,255,255,0.2)" />
-        <circle cx="212" cy="14" r="6" fill="rgba(246,220,169,0.28)" />
-      </svg>
-    </div>
+<div class="card">
 
-    <div class="header">
-      <p class="youre-invited">venha celebrar com a gente ✦</p>
-      <div class="birthday-script">1º aninho</div>
-      <div class="party-script">da Eloá</div>
-    </div>
+<p class="youre-invited">com carinho, convidamos você</p>
 
-    <div class="name-section">
-      <p class="da">nossa pequena sereia</p>
-      <div class="name">Eloá</div>
-      <div class="age-badge">
-        <span>🐚</span>
-        <span class="age-text">está completando 1 aninho</span>
-        <span>🐚</span>
-      </div>
-    </div>
+<div class="title">1º aninho</div>
 
-    <div class="ocean-scene">
-      <svg viewBox="0 0 380 150" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <linearGradient id="waterGlow" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="rgba(255,255,255,0.55)" />
-            <stop offset="100%" stop-color="rgba(240,220,230,0.18)" />
-          </linearGradient>
-        </defs>
+<p class="subtitle">da nossa pequena sereia</p>
 
-        <rect width="380" height="150" fill="url(#waterGlow)" />
+<div class="name">Eloá</div>
 
-        <g opacity="0.75">
-          <path d="M28,150 C22,128 34,105 26,82 C19,60 31,42 24,20" fill="none" stroke="#dcaec2" stroke-width="3" stroke-linecap="round"/>
-          <path d="M24,92 C17,85 12,88 8,79" fill="none" stroke="#dcaec2" stroke-width="2" stroke-linecap="round"/>
-          <path d="M25,66 C20,59 14,62 10,53" fill="none" stroke="#dcaec2" stroke-width="2" stroke-linecap="round"/>
+<p class="text">
+o primeiro aninho da Eloá chegou,<br>
+e nossa alegria será ainda maior com você aqui
+</p>
 
-          <path d="M350,150 C356,124 346,104 353,80 C360,57 348,38 354,18" fill="none" stroke="#edc8d8" stroke-width="3" stroke-linecap="round"/>
-          <path d="M352,86 C358,79 364,81 368,73" fill="none" stroke="#edc8d8" stroke-width="2" stroke-linecap="round"/>
+<div class="info">
+<strong>06 de maio de 2026</strong>
+<span>quarta-feira</span>
+</div>
 
-          <path d="M320,150 C315,132 324,114 318,96" fill="none" stroke="#e3bacb" stroke-width="2.5" stroke-linecap="round"/>
-        </g>
+<div class="info">
+<strong>às 19h</strong>
+<span>esperamos você lá</span>
+</div>
 
-        <path d="M0,132 C48,122 95,136 150,126 C205,117 260,138 320,124 C350,117 369,127 380,124 L380,150 L0,150 Z" fill="rgba(246,220,169,0.2)"/>
+<div class="info">
+<strong>Buffet Infantil Encanto do Céu Guará</strong>
+<span>Chácara 12 Lote 21 - Guará, Brasília - DF</span>
+</div>
 
-        <g opacity="0.82">
-          <path d="M72,140 L72,113 M72,113 C67,106 62,108 59,100 M72,113 C77,106 82,108 85,100 M72,128 C65,122 61,124 58,116 M72,128 C79,122 83,124 86,116" fill="none" stroke="#f0b7cb" stroke-width="2" stroke-linecap="round"/>
-          <path d="M130,145 L130,122 M130,122 C126,117 123,118 121,112 M130,122 C134,117 137,118 139,112 M130,133 C125,129 122,130 120,125" fill="none" stroke="#e9a6bf" stroke-width="1.8" stroke-linecap="round"/>
-        </g>
+<div class="buttons">
 
-        <g transform="translate(204, 126)" opacity="0.9">
-          <path d="M0,-10 L2,-3 L9,-3 L4,1 L6,8 L0,4 L-6,8 L-4,1 L-9,-3 L-2,-3 Z" fill="#f1d48d"/>
-        </g>
+<a href="https://wa.me/556182237484?text=Ol%C3%A1%2C%20gostaria%20de%20confirmar%20presen%C3%A7a%20na%20festa%20da%20Elo%C3%A1." class="btn primary">
+confirmar presença
+</a>
 
-        <g transform="translate(250, 135)" opacity="0.7">
-          <path d="M0,0 C-8,-2 -10,-8 -6,-12 C-2,-16 6,-14 8,-8 C10,-2 6,2 0,0 Z" fill="none" stroke="rgba(255,255,255,0.72)" stroke-width="1.2"/>
-          <line x1="0" y1="0" x2="-7" y2="-11" stroke="rgba(255,255,255,0.45)" stroke-width="0.8"/>
-          <line x1="0" y1="0" x2="-1" y2="-12" stroke="rgba(255,255,255,0.45)" stroke-width="0.8"/>
-          <line x1="0" y1="0" x2="5" y2="-10" stroke="rgba(255,255,255,0.45)" stroke-width="0.8"/>
-        </g>
+<a href="https://www.google.com/maps/search/?api=1&query=Buffet%20Infantil%20Encanto%20do%20C%C3%A9u%20Guar%C3%A1" class="btn secondary">
+abrir no mapa
+</a>
 
-        <g transform="translate(155, 52)">
-          <path d="M0,0 C8,-4 18,-3 20,0 C18,3 8,4 0,0 Z" fill="rgba(241,190,208,0.95)"/>
-          <path d="M-2,-2 L-8,0 L-2,2 Z" fill="rgba(241,190,208,0.72)"/>
-          <circle cx="17" cy="0" r="1.5" fill="rgba(110,77,95,0.75)"/>
-        </g>
+</div>
 
-        <g transform="translate(92, 72)">
-          <path d="M0,0 C6,-3 13,-2 15,0 C13,2 6,3 0,0 Z" fill="rgba(230,198,213,0.98)"/>
-          <path d="M-1,-2 L-6,0 L-1,2 Z" fill="rgba(230,198,213,0.72)"/>
-          <circle cx="12" cy="0" r="1.2" fill="rgba(110,77,95,0.7)"/>
-        </g>
+<div class="footer">
+vai ser uma alegria ter você com a gente
+</div>
 
-        <g transform="translate(294, 42)">
-          <path d="M0,0 C-15,0 -15,-20 0,-22 C15,-20 15,0 0,0 Z" fill="rgba(255,255,255,0.32)" stroke="rgba(239,205,220,0.85)" stroke-width="1"/>
-          <line x1="-8" y1="0" x2="-10" y2="20" stroke="rgba(239,205,220,0.7)" stroke-width="1" stroke-dasharray="2,2"/>
-          <line x1="-3" y1="1" x2="-4" y2="18" stroke="rgba(239,205,220,0.6)" stroke-width="0.8" stroke-dasharray="2,2"/>
-          <line x1="3" y1="1" x2="4" y2="18" stroke="rgba(239,205,220,0.6)" stroke-width="0.8" stroke-dasharray="2,2"/>
-          <line x1="8" y1="0" x2="10" y2="20" stroke="rgba(239,205,220,0.7)" stroke-width="1" stroke-dasharray="2,2"/>
-        </g>
+<div class="ocean"></div>
 
-        <circle cx="48" cy="84" r="3" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="1"/>
-        <circle cx="56" cy="66" r="2" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="0.8"/>
-        <circle cx="180" cy="32" r="2.5" fill="none" stroke="rgba(255,255,255,0.55)" stroke-width="0.8"/>
-        <circle cx="228" cy="48" r="2" fill="none" stroke="rgba(255,255,255,0.45)" stroke-width="0.8"/>
-        <circle cx="308" cy="82" r="3" fill="none" stroke="rgba(255,255,255,0.55)" stroke-width="1"/>
+</div>
 
-        <g opacity="0.08">
-          <path d="M140,0 L118,150" stroke="#ffffff" stroke-width="8"/>
-          <path d="M200,0 L186,150" stroke="#ffffff" stroke-width="5"/>
-          <path d="M260,0 L288,150" stroke="#ffffff" stroke-width="6"/>
-        </g>
-      </svg>
-    </div>
-
-    <div class="tagline">
-      <p class="tagline-text">
-        o primeiro aninho da Eloá chegou,<br>
-        e nossa alegria será ainda maior com você aqui ✦
-      </p>
-    </div>
-
-    <div class="divider"></div>
-
-    <div class="info-section">
-      <div class="info-row">
-        <div class="info-icon">🗓️</div>
-        <div class="info-content">
-          <p class="info-label">data</p>
-          <p class="info-main">06 de maio de 2026</p>
-          <p class="info-sub">quarta-feira</p>
-        </div>
-      </div>
-
-      <div class="info-row">
-        <div class="info-icon">🕐</div>
-        <div class="info-content">
-          <p class="info-label">horário</p>
-          <p class="info-main">a partir das 16h</p>
-          <p class="info-sub">será uma tarde muito especial ✦</p>
-        </div>
-      </div>
-
-      <div class="info-row">
-        <div class="info-icon">📍</div>
-        <div class="info-content">
-          <p class="info-label">endereço</p>
-          <p class="info-main">Rua do Oceano, 123</p>
-          <p class="info-sub">
-            Bairro das Ondas — Sua cidade, ST<br>
-            <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer">↗ ver no mapa</a>
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <div class="buttons">
-      <a href="https://forms.gle/seulink" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-        🐠 confirmar presença
-      </a>
-      <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
-        🗺️ como chegar
-      </a>
-    </div>
-
-    <div class="footer">
-      <p class="footer-text">esperamos você com muito amor 🌸</p>
-    </div>
-  </div>
-
-  <script>
-    const bubbleContainer = document.getElementById('bubbles');
-    for (let i = 0; i < 18; i++) {
-      const b = document.createElement('div');
-      b.className = 'bubble';
-
-      const size = Math.random() * 18 + 6;
-      b.style.width = `${size}px`;
-      b.style.height = `${size}px`;
-      b.style.left = `${Math.random() * 100}%`;
-      b.style.animationDuration = `${Math.random() * 6 + 8}s`;
-      b.style.animationDelay = `${Math.random() * 8}s`;
-      b.style.opacity = (Math.random() * 0.35 + 0.2).toFixed(2);
-
-      bubbleContainer.appendChild(b);
-    }
-
-    const sparkleContainer = document.getElementById('sparkles');
-    for (let i = 0; i < 14; i++) {
-      const s = document.createElement('div');
-      s.className = 'sparkle';
-      s.style.left = `${Math.random() * 100}%`;
-      s.style.top = `${Math.random() * 100}%`;
-      s.style.animationDelay = `${Math.random() * 4}s`;
-      s.style.transform = `scale(${(Math.random() * 0.6 + 0.75).toFixed(2)})`;
-
-      sparkleContainer.appendChild(s);
-    }
-  </script>
 </body>
 </html>
