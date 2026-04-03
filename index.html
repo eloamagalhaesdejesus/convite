@@ -33,7 +33,10 @@
       --ocean-2: #e7cfdb;
       --ocean-3: #ddbccc;
       --ocean-base: rgba(215, 180, 198, 0.95);
-      --white-glow: rgba(255,255,255,0.7);
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
@@ -66,6 +69,7 @@
       background: rgba(255,255,255,0.18);
       border: 1px solid rgba(255,255,255,0.42);
       animation: bubbleRise linear infinite;
+      will-change: transform;
     }
 
     .sparkle {
@@ -130,7 +134,7 @@
       max-width: 430px;
       background: var(--card);
       border: 1px solid rgba(255,255,255,0.88);
-      border-radius: 28px;
+      border-radius: 30px;
       box-shadow: 0 14px 44px rgba(170, 132, 149, 0.15);
       overflow: hidden;
       backdrop-filter: blur(6px);
@@ -138,7 +142,7 @@
 
     .wave-top {
       width: 100%;
-      height: 96px;
+      height: 140px;
       overflow: hidden;
       position: relative;
       background: linear-gradient(to bottom, rgba(255,255,255,0.35), transparent);
@@ -151,7 +155,7 @@
     }
 
     .content {
-      padding: 12px 22px 0;
+      padding: 8px 22px 0;
       text-align: center;
       position: relative;
     }
@@ -181,27 +185,42 @@
 
     .name {
       font-family: 'Great Vibes', cursive;
-      font-size: 74px;
+      font-size: 86px;
       line-height: 1;
       color: var(--gold);
       text-shadow: 0 2px 8px rgba(199, 173, 112, 0.18);
-      margin: 6px 0 8px;
+      margin: 6px 0 6px;
     }
 
     .photo-wrap {
       display: flex;
       justify-content: center;
-      margin: 6px 0 14px;
+      margin: 6px 0 12px;
+      position: relative;
+    }
+
+    .photo-glow {
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,255,255,0.95) 0%, rgba(246,221,232,0.7) 45%, rgba(246,221,232,0) 75%);
+      filter: blur(12px);
+      top: 28px;
+      animation: glowPulse 4.5s ease-in-out infinite;
+      pointer-events: none;
     }
 
     .photo-frame {
-      width: 280px;
-      height: 280px;
+      width: 320px;
+      height: 320px;
       display: flex;
       align-items: flex-end;
       justify-content: center;
       position: relative;
       filter: drop-shadow(0 10px 18px rgba(194, 156, 173, 0.22));
+      animation: floatPhoto 4.5s ease-in-out infinite;
+      z-index: 1;
     }
 
     .photo-frame img {
@@ -209,6 +228,26 @@
       max-height: 100%;
       object-fit: contain;
       display: block;
+    }
+
+    @keyframes floatPhoto {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    @keyframes glowPulse {
+      0%, 100% {
+        transform: scale(1);
+        opacity: 0.72;
+      }
+      50% {
+        transform: scale(1.06);
+        opacity: 0.92;
+      }
     }
 
     .text {
@@ -496,15 +535,18 @@
       15% {
         opacity: 0.9;
       }
+      80% {
+        opacity: 0.6;
+      }
       100% {
-        transform: translateY(-150px) scale(1.05);
+        transform: translateY(-260px) scale(1.1);
         opacity: 0;
       }
     }
 
     @media (max-width: 480px) {
       .content {
-        padding: 10px 18px 0;
+        padding: 8px 18px 0;
       }
 
       .title {
@@ -512,7 +554,7 @@
       }
 
       .name {
-        font-size: 66px;
+        font-size: 74px;
       }
 
       .subtitle {
@@ -531,9 +573,15 @@
         font-size: 13px;
       }
 
+      .photo-glow {
+        width: 230px;
+        height: 230px;
+        top: 24px;
+      }
+
       .photo-frame {
-        width: 250px;
-        height: 250px;
+        width: 280px;
+        height: 280px;
       }
 
       .ocean {
@@ -548,18 +596,18 @@
 
   <div class="card">
     <div class="wave-top">
-      <svg viewBox="0 0 420 96" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <svg viewBox="0 0 420 140" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <linearGradient id="waveGradTop" x1="0" y1="0" x2="0" y2="1">
             <stop offset="0%" stop-color="#f7e8ef"/>
             <stop offset="100%" stop-color="#efd9e5" stop-opacity="0.35"/>
           </linearGradient>
         </defs>
-        <path d="M0,28 C60,56 130,10 210,34 C290,58 350,18 420,40 L420,0 L0,0 Z" fill="url(#waveGradTop)" />
-        <path d="M0,48 C80,18 150,60 230,38 C310,16 370,50 420,28 L420,0 L0,0 Z" fill="rgba(255,255,255,0.35)" />
-        <circle cx="54" cy="18" r="12" fill="rgba(255,255,255,0.22)" />
-        <circle cx="360" cy="22" r="10" fill="rgba(255,255,255,0.2)" />
-        <circle cx="212" cy="14" r="6" fill="rgba(246,220,169,0.28)" />
+        <path d="M0,60 C80,120 180,10 300,70 C360,100 420,40 420,40 L420,0 L0,0 Z" fill="url(#waveGradTop)" />
+        <path d="M0,80 C100,20 200,110 320,60 C380,40 420,70 420,70 L420,0 L0,0 Z" fill="rgba(255,255,255,0.4)" />
+        <circle cx="54" cy="28" r="12" fill="rgba(255,255,255,0.22)" />
+        <circle cx="360" cy="32" r="10" fill="rgba(255,255,255,0.2)" />
+        <circle cx="212" cy="24" r="6" fill="rgba(246,220,169,0.28)" />
       </svg>
     </div>
 
@@ -571,6 +619,7 @@
       <div class="name">Eloá</div>
 
       <div class="photo-wrap">
+        <div class="photo-glow"></div>
         <div class="photo-frame">
           <img src="eloa.png" alt="Foto da Eloá">
         </div>
@@ -684,6 +733,16 @@
 
       oceanBubbles.appendChild(bubble);
     }
+
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+      const bubbles = document.querySelectorAll('.bubble');
+
+      bubbles.forEach((bubble, index) => {
+        const speed = (index % 5 + 1) * 0.3;
+        bubble.style.transform = `translateY(-${scrollY * speed}px)`;
+      });
+    });
   </script>
 </body>
 </html>
