@@ -191,9 +191,21 @@
         overflow: hidden;
         background: linear-gradient(
           to bottom,
-          rgba(255, 255, 255, 0.38),
-          transparent
+          rgba(247, 232, 239, 0.96) 0%,
+          rgba(239, 217, 229, 0.72) 55%,
+          rgba(255, 255, 255, 0.14) 100%
         );
+      }
+
+      .wave-top-svg {
+        position: absolute;
+        top: -8px;
+        left: 0;
+        width: 100%;
+        height: calc(100% + 14px);
+        display: block;
+        will-change: transform;
+        animation: topWaveDrift 8s ease-in-out infinite;
       }
 
       .wave-top svg {
@@ -202,9 +214,37 @@
         display: block;
       }
 
+      .wave-top .wave-back {
+        transform-origin: center bottom;
+        animation: topWaveSwell 10s ease-in-out infinite;
+      }
+
+      .wave-top .wave-front {
+        transform-origin: center bottom;
+        animation: topWaveSwellAlt 7.5s ease-in-out infinite;
+      }
+
+      .wave-top .foam-bubble {
+        animation: foamPulse 6s ease-in-out infinite;
+        transform-origin: center;
+      }
+
+      .wave-top .foam-bubble.bubble-2 {
+        animation-duration: 7.5s;
+        animation-delay: -2s;
+      }
+
+      .wave-top .foam-bubble.bubble-3 {
+        animation-duration: 5.5s;
+        animation-delay: -1s;
+      }
+
       .top-shine {
         position: absolute;
-        inset: 0;
+        top: -4px;
+        left: 0;
+        width: 100%;
+        height: calc(100% + 8px);
         pointer-events: none;
         opacity: 0.75;
         background:
@@ -218,6 +258,66 @@
             rgba(255, 255, 255, 0.24),
             transparent 26%
           );
+        animation: topShineShift 9s ease-in-out infinite;
+      }
+
+      @keyframes topWaveDrift {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+
+        50% {
+          transform: translateY(4px);
+        }
+      }
+
+      @keyframes topWaveSwell {
+        0%,
+        100% {
+          transform: translateY(0) scaleY(1);
+        }
+
+        50% {
+          transform: translateY(5px) scaleY(1.06);
+        }
+      }
+
+      @keyframes topWaveSwellAlt {
+        0%,
+        100% {
+          transform: translateY(0) scaleY(1);
+        }
+
+        50% {
+          transform: translateY(4px) scaleY(1.04);
+        }
+      }
+
+      @keyframes foamPulse {
+        0%,
+        100% {
+          transform: scale(0.94);
+          opacity: 0.45;
+        }
+
+        50% {
+          transform: scale(1.08);
+          opacity: 0.9;
+        }
+      }
+
+      @keyframes topShineShift {
+        0%,
+        100% {
+          opacity: 0.6;
+          transform: translateX(0);
+        }
+
+        50% {
+          opacity: 0.9;
+          transform: translateX(8px);
+        }
       }
 
       .content {
@@ -294,8 +394,8 @@
 
       .photo-glow {
         position: absolute;
-        width: 330px;
-        height: 330px;
+        width: 380px;
+        height: 380px;
         top: 42px;
         border-radius: 50%;
         pointer-events: none;
@@ -313,7 +413,7 @@
         width: 430px;
         height: 430px;
         display: flex;
-        align-items: flex-end;
+        align-items: center;
         justify-content: center;
         position: relative;
         z-index: 1;
@@ -322,8 +422,8 @@
       }
 
       .photo-frame img {
-        max-width: 100%;
-        max-height: 100%;
+        max-width: 80%;
+        max-height: 80%;
         object-fit: contain;
         display: block;
       }
@@ -987,9 +1087,11 @@
     <div class="card">
       <div class="wave-top">
         <svg
+          class="wave-top-svg"
           viewBox="0 0 420 150"
           preserveAspectRatio="none"
           xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
         >
           <defs>
             <linearGradient id="waveGradTop" x1="0" y1="0" x2="0" y2="1">
@@ -998,16 +1100,80 @@
             </linearGradient>
           </defs>
           <path
+            class="wave-back"
             d="M0,60 C80,120 180,10 300,70 C360,100 420,40 420,40 L420,0 L0,0 Z"
             fill="url(#waveGradTop)"
-          />
+          >
+            <animate
+              attributeName="d"
+              dur="9s"
+              repeatCount="indefinite"
+              values="M0,60 C80,120 180,10 300,70 C360,100 420,40 420,40 L420,0 L0,0 Z;
+                      M0,56 C92,106 184,18 306,62 C366,92 420,34 420,34 L420,0 L0,0 Z;
+                      M0,66 C74,126 174,4 296,78 C356,108 420,48 420,48 L420,0 L0,0 Z;
+                      M0,60 C80,120 180,10 300,70 C360,100 420,40 420,40 L420,0 L0,0 Z"
+            />
+          </path>
           <path
+            class="wave-front"
             d="M0,80 C100,20 200,110 320,60 C380,40 420,70 420,70 L420,0 L0,0 Z"
             fill="rgba(255,255,255,0.4)"
-          />
-          <circle cx="54" cy="28" r="12" fill="rgba(255,255,255,0.22)" />
-          <circle cx="360" cy="32" r="10" fill="rgba(255,255,255,0.2)" />
-          <circle cx="212" cy="24" r="6" fill="rgba(246,220,169,0.28)" />
+          >
+            <animate
+              attributeName="d"
+              dur="6.8s"
+              repeatCount="indefinite"
+              values="M0,80 C100,20 200,110 320,60 C380,40 420,70 420,70 L420,0 L0,0 Z;
+                      M0,74 C112,16 210,104 326,54 C386,36 420,62 420,62 L420,0 L0,0 Z;
+                      M0,86 C92,30 194,118 314,68 C376,48 420,78 420,78 L420,0 L0,0 Z;
+                      M0,80 C100,20 200,110 320,60 C380,40 420,70 420,70 L420,0 L0,0 Z"
+            />
+          </path>
+          <circle
+            class="foam-bubble bubble-1"
+            cx="54"
+            cy="28"
+            r="12"
+            fill="rgba(255,255,255,0.22)"
+          >
+            <animateTransform
+              attributeName="transform"
+              type="translate"
+              dur="8s"
+              repeatCount="indefinite"
+              values="0 0; 5 4; 0 0"
+            />
+          </circle>
+          <circle
+            class="foam-bubble bubble-2"
+            cx="360"
+            cy="32"
+            r="10"
+            fill="rgba(255,255,255,0.2)"
+          >
+            <animateTransform
+              attributeName="transform"
+              type="translate"
+              dur="9.5s"
+              repeatCount="indefinite"
+              values="0 0; -6 3; 0 0"
+            />
+          </circle>
+          <circle
+            class="foam-bubble bubble-3"
+            cx="212"
+            cy="24"
+            r="6"
+            fill="rgba(246,220,169,0.28)"
+          >
+            <animateTransform
+              attributeName="transform"
+              type="translate"
+              dur="6s"
+              repeatCount="indefinite"
+              values="0 0; 3 2; 0 0"
+            />
+          </circle>
         </svg>
         <div class="top-shine"></div>
       </div>
