@@ -183,28 +183,50 @@
     }
 
     .youre-invited {
-      font-size: 12px;
-      letter-spacing: 2px;
-      color: var(--soft);
-      margin-bottom: 10px;
-      text-transform: uppercase;
-    }
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: var(--soft);
+  margin-bottom: 14px;
+  text-transform: uppercase;
+}
 
-    .title {
-      font-family: 'Great Vibes', cursive;
-      font-size: 64px;
-      line-height: 0.9;
-      color: var(--soft-2);
-      margin-bottom: 2px;
-    }
+.title {
+  font-family: 'Great Vibes', cursive;
+  font-size: 62px;
+  line-height: 0.95;
+  color: var(--soft-2);
+  margin-bottom: 2px;
+}
 
-    .subtitle {
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-size: 20px;
-      color: var(--soft);
-      margin-bottom: 4px;
-    }
+.name {
+  font-family: 'Great Vibes', cursive;
+  font-size: 92px;
+  line-height: 0.9;
+  margin-bottom: 8px;
+  background: linear-gradient(
+    90deg,
+    var(--gold) 0%,
+    #fff6d6 22%,
+    var(--gold-2) 40%,
+    var(--gold) 62%,
+    #fff6d6 78%,
+    var(--gold) 100%
+  );
+  background-size: 220% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmerName 7s linear infinite;
+  text-shadow: 0 2px 8px rgba(199, 173, 112, 0.08);
+}
+
+.subtitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 22px;
+  color: var(--soft);
+  margin-bottom: 10px;
+}
 
     .name {
       font-family: 'Great Vibes', cursive;
@@ -257,8 +279,8 @@
     }
 
     .photo-frame {
-      width: 400px;
-      height: 400px;
+      width: 440px;
+      height: 440px;
       display: flex;
       align-items: flex-end;
       justify-content: center;
@@ -531,21 +553,21 @@
       animation: sway1 4.8s ease-in-out infinite;
     }
 
-    .mermaid {
-      position: absolute;
-      bottom: 10px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 90px;
-      opacity: 1;
-      z-index: 4;
-      filter: drop-shadow(0 0 12px rgba(255,255,255,0.6));
-      animation: mermaidFloat 6s ease-in-out infinite;
-    }
+   .mermaid {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70px;
+  opacity: 0.85;
+  animation: floatMermaid 5s ease-in-out infinite;
+  z-index: 4;
+}
 
-    .mermaid svg {
-      animation: mermaidGlow 3s ease-in-out infinite;
-    }
+@keyframes floatMermaid {
+  0%,100% { transform: translateX(-50%) translateY(0px); }
+  50% { transform: translateX(-50%) translateY(-10px); }
+}
 
     .star-svg {
       position: absolute;
@@ -759,17 +781,16 @@
       }
 
       .title {
-        font-size: 58px;
-      }
+  font-size: 56px;
+}
 
-      .subtitle {
-        font-size: 19px;
-      }
+.name {
+  font-size: 80px;
+}
 
-      .name {
-        font-size: 84px;
-      }
-
+.subtitle {
+  font-size: 20px;
+}
       .text {
         font-size: 14px;
       }
@@ -789,8 +810,8 @@
       }
 
       .photo-frame {
-        width: 330px;
-        height: 330px;
+        width: 360px;
+        height: 360px;
       }
 
       .ocean {
@@ -830,11 +851,11 @@
     </div>
 
     <div class="content">
-      <p class="youre-invited">com carinho, convidamos você</p>
+     <p class="youre-invited">com carinho, convidamos você</p>
 
-      <div class="title">1º aninho</div>
-      <p class="subtitle">da nossa pequena sereia</p>
-      <div class="name">Eloá</div>
+<div class="title">1º aninho</div>
+<div class="name">Eloá</div>
+<p class="subtitle">da nossa pequena sereia</p>
 
       <div class="photo-wrap">
         <div class="photo-glow"></div>
@@ -995,14 +1016,20 @@
         </div>
 
         <div class="mermaid">
-          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-            <path d="M50 10 C40 20, 35 35, 50 45 C65 35, 60 20, 50 10Z" fill="#f3c6d8"/>
-            <path d="M50 45 C40 60, 45 80, 50 95 C55 80, 60 60, 50 45Z" fill="#cfa4bd"/>
-            <path d="M50 95 C45 88, 40 92, 38 100 C45 98, 50 96, 50 95Z" fill="#b98aa6"/>
-            <path d="M50 95 C55 88, 60 92, 62 100 C55 98, 50 96, 50 95Z" fill="#b98aa6"/>
-          </svg>
-        </div>
-      </div>
+  <svg viewBox="0 0 120 200" xmlns="http://www.w3.org/2000/svg">
+    <!-- corpo -->
+    <path d="M60 20 C50 50, 50 90, 60 110 C70 90, 70 50, 60 20Z" fill="#c08497"/>
+    
+    <!-- cabelo -->
+    <path d="M60 20 C40 10, 30 40, 60 60 C90 40, 80 10, 60 20Z" fill="#fbcfe8"/>
+    
+    <!-- cauda -->
+    <path d="M60 110 C40 140, 30 170, 60 190 C90 170, 80 140, 60 110Z" fill="#f9a8d4"/>
+    
+    <!-- barbatanas -->
+    <path d="M60 170 C40 180, 30 200, 60 190 C90 200, 80 180, 60 170Z" fill="#f472b6"/>
+  </svg>
+</div>
 
       <div class="wave wave-1"></div>
       <div class="wave wave-2"></div>
