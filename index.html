@@ -816,6 +816,169 @@
 
       
     }
+
+    /* CONTAINER OCEANO */
+.ocean-decor {
+  position: relative;
+  height: 180px;
+  margin-top: 30px;
+  border-radius: 24px;
+  overflow: hidden;
+  background: linear-gradient(to top, #e7c9d6, #f4e4ea);
+}
+
+/* ALGAS */
+.seaweed {
+  position: absolute;
+  bottom: 0;
+  width: 14px;
+  border-radius: 14px 14px 0 0;
+  background: linear-gradient(to top, #ddb5c7, #efcfdb);
+  transform-origin: bottom center;
+  opacity: 0.7;
+}
+
+.seaweed.one {
+  left: 24px;
+  height: 80px;
+  animation: sway1 4s ease-in-out infinite;
+}
+
+.seaweed.two {
+  left: 60px;
+  height: 55px;
+  width: 10px;
+  animation: sway2 5s ease-in-out infinite;
+}
+
+.seaweed.three {
+  right: 26px;
+  height: 75px;
+  animation: sway2 4.5s ease-in-out infinite;
+}
+
+.seaweed.four {
+  right: 60px;
+  height: 50px;
+  width: 10px;
+  animation: sway1 4.8s ease-in-out infinite;
+}
+
+@keyframes sway1 {
+  0%,100% { transform: rotate(-4deg); }
+  50% { transform: rotate(4deg); }
+}
+
+@keyframes sway2 {
+  0%,100% { transform: rotate(4deg); }
+  50% { transform: rotate(-4deg); }
+}
+
+/* CORAL */
+.coral {
+  position: absolute;
+  bottom: 14px;
+  left: 90px;
+  width: 18px;
+  height: 28px;
+  background: linear-gradient(to top, #efc2d3, #f7d7e3);
+  border-radius: 12px 12px 4px 4px;
+  opacity: 0.6;
+}
+
+/* ESTRELA */
+.star {
+  position: absolute;
+  bottom: 18px;
+  left: 50%;
+  width: 22px;
+  height: 22px;
+  background: #f3d98b;
+  clip-path: polygon(
+    50% 0%,
+    61% 35%,
+    98% 35%,
+    68% 57%,
+    79% 91%,
+    50% 70%,
+    21% 91%,
+    32% 57%,
+    2% 35%,
+    39% 35%
+  );
+  transform: translateX(-50%);
+  opacity: 0.9;
+}
+
+/* PEIXES */
+.fish {
+  position: absolute;
+  width: 14px;
+  height: 10px;
+  background: #e9a6b8;
+  border-radius: 50%;
+}
+
+.fish::after {
+  content: '';
+  position: absolute;
+  right: -5px;
+  top: 2px;
+  border-left: 6px solid #e9a6b8;
+  border-top: 3px solid transparent;
+  border-bottom: 3px solid transparent;
+}
+
+.fish1 {
+  top: 40px;
+  left: -20px;
+  animation: swim 10s linear infinite;
+}
+
+.fish2 {
+  top: 70px;
+  left: -40px;
+  animation: swim 12s linear infinite;
+}
+
+.fish3 {
+  top: 55px;
+  left: -30px;
+  animation: swim 11s linear infinite;
+}
+
+@keyframes swim {
+  from { transform: translateX(0); }
+  to { transform: translateX(500px); }
+}
+
+/* ÁGUA VIVA */
+.jelly {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  width: 16px;
+  height: 18px;
+  background: #f2c6d4;
+  border-radius: 50% 50% 40% 40%;
+  opacity: 0.7;
+  animation: float 4s ease-in-out infinite;
+}
+
+.jelly::after {
+  content: '';
+  position: absolute;
+  top: 16px;
+  left: 7px;
+  width: 2px;
+  height: 10px;
+  background: #f2c6d4;
+}
+
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
   </style>
 </head>
 <body>
@@ -935,18 +1098,28 @@
       <div class="ocean-bubbles" id="oceanBubbles"></div>
 
       <div class="ocean-decor">
-        <div class="seaweed one"></div>
-        <div class="seaweed two"></div>
-        <div class="seaweed three"></div>
-        <div class="seaweed four"></div>
 
-        <div class="fish-svg one">
-          <svg viewBox="0 0 60 30" xmlns="http://www.w3.org/2000/svg">
-            <ellipse cx="30" cy="15" rx="14" ry="8" fill="#f6dca9"/>
-            <polygon points="14,15 0,5 0,25" fill="#f6dca9"/>
-            <circle cx="38" cy="13" r="1.5" fill="#6e4d5f"/>
-          </svg>
-        </div>
+  <!-- ALGAS -->
+  <div class="seaweed one"></div>
+  <div class="seaweed two"></div>
+  <div class="seaweed three"></div>
+  <div class="seaweed four"></div>
+
+  <!-- CORAL -->
+  <div class="coral"></div>
+
+  <!-- ESTRELA -->
+  <div class="star"></div>
+
+  <!-- PEIXES -->
+  <div class="fish fish1"></div>
+  <div class="fish fish2"></div>
+  <div class="fish fish3"></div>
+
+  <!-- ÁGUA VIVA -->
+  <div class="jelly"></div>
+
+</div>
 
         <div class="fish-svg two">
           <svg viewBox="0 0 60 30" xmlns="http://www.w3.org/2000/svg">
